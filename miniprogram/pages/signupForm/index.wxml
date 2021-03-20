@@ -1,0 +1,7 @@
+<!--pages/signupForm/index.wxml-->
+<!--
+ You can create template to be reused. See template section of https://developers.weixin.qq.com/ebook?action=get_post_info&docid=000ee2c29d4f805b0086a37a254c0a 
+-->
+<import src="template.wxml"/>
+
+<template is="timeItem" data="{{time}}"/>

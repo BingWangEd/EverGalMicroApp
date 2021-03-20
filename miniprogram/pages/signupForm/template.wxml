@@ -1,0 +1,9 @@
+<!--
+ You can create template to be reused. See template section of https://developers.weixin.qq.com/ebook?action=get_post_info&docid=000ee2c29d4f805b0086a37a254c0a 
+-->
+
+<template name="timeItem">
+  <view>
+    <text> Time: {{time}} </text>
+  </view>
+</template>
