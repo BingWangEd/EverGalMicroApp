@@ -1,7 +1,39 @@
 <!--pages/signupForm/index.wxml-->
-<!--
- You can create template to be reused. See template section of https://developers.weixin.qq.com/ebook?action=get_post_info&docid=000ee2c29d4f805b0086a37a254c0a 
--->
-<import src="template.wxml"/>
-
-<template is="timeItem" data="{{time}}"/>
+<!--WXML示例代码-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}" catchsubmit="{{submitForm}}" class="form">
+  <mp-cells title="{{instructions.en.selectEvent}}">
+      <mp-checkbox-group prop="radio" multi="{{false}}" bindchange="radioChange">
+        <mp-checkbox wx:for="{{currentEvents}}" wx:key="id" label="{{item.name}}" value="{{item.id}}" checked="{{item.checked}}" name="selectedEvent"></mp-checkbox>
+      </mp-checkbox-group>
+  </mp-cells>
+  <view class="text-info-wrapper">
+    <view>
+      <text class="title">Location:</text><text class="text">{{currentEvents[formData.selectedEvent-1].location}}</text>
+    </view>
+    <view>
+      <text class="title">Time:</text><text class="text">{{currentEvents[formData.selectedEvent-1].dateTime}}</text>
+    </view>
+  </view>
+  <mp-cells title="{{instructions.en.contact.title}}" footer="{{instructions.en.contact.footer}}">
+    <mp-cell prop="{{instructions.en.contact.name}}" title="{{instructions.en.contact.name}}" ext-class="">
+      <input bindinput="nameInputChange" data-field="name" class="weui-input" name="name"/>
+    </mp-cell>
+    <mp-cell prop="{{instructions.en.contact.mobile}}" title="{{instructions.en.contact.mobile}}" ext-class="">
+      <input bindinput="contactInputChange" data-field="mobile" class="weui-input" name="mobile"/>
+    </mp-cell>
+    <mp-cell prop="{{instructions.en.contact.email}}" title="{{instructions.en.contact.email}}" ext-class="">
+        <input bindinput="contactInputChange" data-field="email" class="weui-input" name="email"/>
+    </mp-cell>
+  </mp-cells>
+  <view class="weui-cells__title">{{instructions.en.other}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea data-field="other" name="other" bindinput="otherInputChange" class="weui-textarea" placeholder="Let us know here ..." style="height: 3.3em" />
+          <view class="weui-textarea-counter">0/200</view>
+        </view>
+      </view>
+  </view>
+  <button class="weui-btn" bindtap="submitForm">{{instructions.en.signUp}}</button>
+</mp-form>

@@ -12,3 +12,14 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+
+# self-added
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Config file #
+config.js

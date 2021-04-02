@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/signupForm/index",
+    "pages/myEvents/index",
+    "pages/aboutEverGal/index",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -19,9 +21,41 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "EverGal Sign Up",
+    "navigationBarTitleText": "EverGal",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#797979",
+    "selectedColor": "#64C0A9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "text": "Sign Up",
+        "iconPath": "/images/pencil_gray.png",
+        "selectedIconPath": "/images/pencil_mint.png",
+        "pagePath": "pages/signupForm/index"
+      },
+      {
+        "text": "My Events",
+        "iconPath": "/images/eventCalendar_gray.png",
+        "selectedIconPath": "/images/eventCalendar_mint.png",
+        "pagePath": "pages/myEvents/index"
+      },
+      {
+        "text": "About EverGal",
+        "iconPath": "/images/logo_mint_text_scribbled_outline.png",
+        "selectedIconPath": "/images/logo_white_text.png",
+        "pagePath": "pages/aboutEverGal/index"
+      }
+    ]
+  }
 }

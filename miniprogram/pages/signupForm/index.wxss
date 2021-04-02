@@ -1,1 +1,20 @@
 /* pages/signupForm/index.wxss */
+.form {
+  /* bottom tab height: 48px */
+  margin-bottom: 58px;
+}
+
+.weui-btn {
+  margin-top: 10px;
+  background-color: #64C0A9;
+}
+
+.title {
+  width: 80px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 14px;
+}

@@ -1,0 +1,37 @@
+<!--miniprogram/pages/myEvents/index.wxml-->
+<view wx:if="{{signedUpEvents.length === 0}}" class="page-wrapper">
+  <text>It looks like you haven't signed up for any events yet.</text>
+</view>
+<view wx:if="{{signedUpEvents.length > 0}}" class="page">
+  <view class="page__hd page-wrapper">
+    <view>We are excited to work out with you! Here are the events that you signed up.</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-slidecells" wx:for="{{signedUpEvents}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" icon="{{true}}" data-index="{{index}}" bindbuttontap="slideButtonTap" bindtap="viewEventDetail">
+        <view class="weui-slidecell " style="background-color: {{index === selectedEvent ? '#64C0A9' : '#FFFFFF'}};">
+          <mp-cell value="{{item.name}}" footer="slide to cancel"></mp-cell>
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+</view>
+<scroll-view wx:if="{{signedUpEvents.length > 0}}">
+  <view wx:if="{{signedUpEvents[selectedEvent] !== undefined}}">
+    <view class="page-wrapper">
+      <text class="title">{{signedUpEvents[selectedEvent].name}} @ {{signedUpEvents[selectedEvent].location}}</text>
+    </view>
+    <view class="page-wrapper">
+      <text class="text">We will meet at </text><text class="title">{{signedUpEvents[selectedEvent].meetSpot}} on {{signedUpEvents[selectedEvent].dateTime}}</text>
+    </view>
+    <view class="page-wrapper">
+      <text class="text">Please pay attention to the following information:</text>
+      <view wx:for="{{signedUpEvents[selectedEvent].headsup}}" wx:for-index="idx" wx:key="*this" wx:for-item="itemName" class="title">
+        {{itemName}}
+      </view>
+    </view>
+    <view class="page-wrapper" style="margin-bottom: 58px;">
+      <text class="text">If you cannot find us, please reach out to ...</text>
+    </view>
+  </view>
+</scroll-view>

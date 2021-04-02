@@ -1,4 +1,6 @@
 //app.js
+const CONFIG = require('./config');
+
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -13,7 +15,68 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+  },
+  globalData: {
+    selectedEvent: undefined,
+    eventDetails: undefined,
+    currentEvents: undefined,
+    userOpenId: undefined
+  },
+  loadCurrentEvents: function () {
+    const that = this;
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: "getCurrentEvents",
+        success: (res) => {
+          if (res.result.data) {
+            const currentEvents = res.result.data;
+            that.globalData.currentEvents = currentEvents;
+            wx.setStorageSync("currentEvent", currentEvents);
+            resolve(currentEvents);
+          } else {
+            reject('Received data does not have current events: ', res);
+          }
+        },
+        fail: (err) => {
+          reject(err);
+        }
+      })
+    });
+  },
+  loadUserId: function () {
+    const that = this;
+    return new Promise((resolve, reject) => {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            wx.request({
+              url: 'https://api.weixin.qq.com/sns/jscode2session',
+              data:{
+                appid: CONFIG.APP_ID,
+                secret: CONFIG.SECRETE,
+                js_code: res.code,
+                grant_type:'authorization_code'
+              },
+              method:"GET",
+              success(res) {
+                if (res.data.openid) {
+                  const userOpenId = res.data.openid;
+                  that.globalData.userOpenId = userOpenId;
+                  wx.setStorageSync("userOpenId", userOpenId);
+                  resolve(userOpenId);
+                } else {
+                  reject('Received data does not include user open id');
+                }
+              },
+              fail(err) {
+                reject('Failed to get openId res: ', err)
+              }
+            })
+          } else {
+            reject('Received data does not include user code');
+          }
+        }
+      })
+    })
   }
 })

@@ -154,3 +154,9 @@ page {
   line-height: 36rpx;
   word-break: break-all;
 }
+
+.text-info-wrapper {
+  margin: 8px;
+  margin-left: 16px;
+  color: #797979;
+}
