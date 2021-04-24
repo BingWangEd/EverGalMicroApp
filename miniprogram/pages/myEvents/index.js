@@ -166,6 +166,9 @@ Page({
 
   slideButtonTap: function (e) {
     const that = this;
+    that.setData({
+      loadingData: true,
+    })
 
     const eventNumber = e.currentTarget.dataset.index;
     const event = that.data.signedUpEvents[eventNumber];
@@ -185,6 +188,9 @@ Page({
         });
         that.setData({
           signedUpEvents: that.data.signedUpEvents.filter((ele, i) => i !== eventNumber)
+        })
+        that.setData({
+          loadingData: false,
         })
       }
     });
