@@ -17,8 +17,6 @@ App({
     }
   },
   globalData: {
-    selectedEvent: undefined,
-    eventDetails: undefined,
     currentEvents: undefined,
     userOpenId: undefined
   },
@@ -31,7 +29,7 @@ App({
           if (res.result.data) {
             const currentEvents = res.result.data;
             that.globalData.currentEvents = currentEvents;
-            wx.setStorageSync("currentEvent", currentEvents);
+            wx.setStorageSync("currentEvents", currentEvents);
             resolve(currentEvents);
           } else {
             reject('Received data does not have current events: ', res);

@@ -74,14 +74,14 @@ Page({
         name: 'mobile',
         rules: [
           {required: true, message: 'Please fill out your mobile number.'},
-          // {mobile: true, message: 'The format is not correct.'}
+          { mobile: true, message: 'The format is not correct.' }
         ],
       },
       {
         name: 'email',
         rules: [
-          {required: true, message: 'Please fill out your email.'},
-          // {email: true, message: 'The format is not correct.'}
+          { required: true, message: 'Please fill out your email.' },
+          { email: true, message: 'The format is not correct.' }
         ],
       },
     ]
@@ -125,8 +125,6 @@ Page({
         const { name, selectedEvent, email, mobile } = this.data.formData;
         const event = this.data.currentEvents[selectedEvent-1];
         const app = getApp();
-        app.globalData.selectedEvent = selectedEvent;
-        app.globalData.eventDetails = event;
         wx.showToast({
             title: 'Thank you~'
         })
