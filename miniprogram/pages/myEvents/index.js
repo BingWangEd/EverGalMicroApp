@@ -7,11 +7,10 @@ Page({
   data: {
     eventDetails: [],
     signedUpEvents: [],
-    selectedEvent: 0
-    // canIUseGetUserProfile: true,
-    // title: `${getApp().globalData.eventDetails.name} @ ${getApp().globalData.eventDetails.location}`,
-    // meetSpot: getApp().globalData.eventDetails.meetSpot,
-    // headsup: getApp().globalData.eventDetails.headsup,
+    selectedEvent: 0,
+    tips: 'Please wait ...',
+    loadingData: true,
+    animated: true,
   },
 
   /**
@@ -28,6 +27,7 @@ Page({
         text: 'cancel reservation',
         src: '/images/cross_pink.png',
       }],
+      loadingData: true,
     });
 
     /**
@@ -72,6 +72,9 @@ Page({
               signedUpEvents: [event, ...that.data.signedUpEvents],
             });
           }
+          that.setData({
+            loadingData: false,
+          });
         }
       });
     });
@@ -102,12 +105,13 @@ Page({
     const currentEvents = app.globalData.currentEvents;
     that.setData({
       signedUpEvents: [],
+      loadingData: true,
     });
     await currentEvents.filter(async (event) => {
       await wx.cloud.callFunction({
         name: "findIfSignedUp",
         data: {
-          userOpenId,
+          userOpenId: that.data.userOpenId,
           eventName: event.name,
         },
         success: (res) => {
@@ -117,6 +121,9 @@ Page({
               signedUpEvents: [event, ...that.data.signedUpEvents],
             });
           }
+          that.setData({
+            loadingData: false,
+          });
         }
       });
     });
