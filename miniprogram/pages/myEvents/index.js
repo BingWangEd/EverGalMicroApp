@@ -51,13 +51,10 @@ Page({
     /**
      * Get what the user signed up
      */
-    let signedUpEventNames = app.globalData.userSignedUpEvents;
-    if (!signedUpEventNames) {
-      that.setData({
-        loadingData: true,
-      });
-      signedUpEventNames = await app.loadUserSignedUpEvents();
-    }
+    that.setData({
+      loadingData: true,
+    });
+    const signedUpEventNames = await app.loadUserSignedUpEvents();
     const signedUpEvents = app.globalData.currentEvents.filter(event => signedUpEventNames.includes(event.name));
 
     that.setData({

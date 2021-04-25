@@ -80,9 +80,6 @@ App({
   },
   loadUserSignedUpEvents: async function () {
     const that = this;
-    if (that.globalData.currentEvents) {
-      return Promise.resolve(that.globalData.currentEvents);
-    }
 
     /**
      * Make sure currentEvents have been loaded

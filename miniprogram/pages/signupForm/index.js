@@ -137,6 +137,7 @@ Page({
             mobile,
           },
           success: (res) => {
+            // send signal to reload signed up events
             wx.switchTab({
               url: '/pages/myEvents/index',
             })
