@@ -1,5 +1,10 @@
 {
   "miniprogramRoot": "miniprogram/",
+  "scripts": {
+    "beforeCompile": "yarn run tsc",
+    "beforePreview": "yarn run tsc",
+    "beforeUpload": "yarn run tsc"
+  },
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "urlCheck": false,
@@ -8,10 +13,10 @@
     "postcss": true,
     "minified": true,
     "newFeature": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "scopeDataCheck": false,
-    "uglifyFileName": false,
+    "uglifyFileName": true,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
@@ -30,7 +35,8 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "compileHotReLoad": true
   },
   "appid": "wxef331ad0b42bcf7f",
   "projectname": "miniprogram-trial",

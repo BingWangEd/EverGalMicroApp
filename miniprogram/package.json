@@ -1,0 +1,17 @@
+{
+  "name": "evergal-micro-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/BingWangEd/EverGalMicroApp.git",
+  "author": "Bing Wang",
+  "license": "MIT",
+  "dependencies": {
+    "fp-ts": "^2.10.4"
+  },
+  "scripts": {
+    "tsc": "node ./node_modules/typescript/lib/tsc.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
