@@ -28,7 +28,7 @@ Page({
       }
     },
     currentEvents: undefined,
-    // currentEvents: [
+        // currentEvents: [
     //   {
     //     id: 1,
     //     name: 'Yoga',
@@ -74,14 +74,14 @@ Page({
         name: 'mobile',
         rules: [
           {required: true, message: 'Please fill out your mobile number.'},
-          { mobile: true, message: 'The format is not correct.' }
+          // { mobile: true, message: 'The format is not correct.' }
         ],
       },
       {
         name: 'email',
         rules: [
           { required: true, message: 'Please fill out your email.' },
-          { email: true, message: 'The format is not correct.' }
+          // { email: true, message: 'The format is not correct.' }
         ],
       },
     ]
@@ -90,8 +90,9 @@ Page({
   // functions
   radioChange: function (e) {
     this.setData({
-      [`formData.selectedEvent`]: e.detail.value
+      [`formData.selectedEvent`]: Number(e.detail.value),
     });
+    this.resetEventDetails();
   },
   contactInputChange: function (e) {
     const {field} = e.currentTarget.dataset;
@@ -123,8 +124,7 @@ Page({
         }
       } else {
         const { name, selectedEvent, email, mobile } = this.data.formData;
-        const event = this.data.currentEvents[selectedEvent-1];
-        const app = getApp();
+        const event = this.data.currentEvents.find(event => event.id === selectedEvent);
         wx.showToast({
             title: 'Thank you~'
         })
@@ -157,16 +157,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let currentEvents = wx.getStorageSync("currentEvents");
-    if (!currentEvents) {
-      app.loadCurrentEvents().then(res => {
-        console.log('Loading sign up form. Received currentEvents: ', res);
-        this.setData({
-          currentEvents: res
-        })
-      })
-    }
-
     let userOpenId = wx.getStorageSync("userOpenId");
     if (!userOpenId) {
       app.loadUserId();
@@ -190,6 +180,30 @@ Page({
         selected: 0
       })
     }
+
+    let currentEvents = wx.getStorageSync("currentEvents");
+    if (!currentEvents) {
+      app.loadCurrentEvents().then(res => {
+        console.log('Loading sign up form. Received currentEvents: ', res);
+        this.setData({
+          currentEvents: res
+        })
+      })
+    } else {
+      this.setData({
+        currentEvents: currentEvents
+      })
+    }
+    this.resetEventDetails();
+  },
+
+  resetEventDetails: function () {
+    const event = this.data.currentEvents.find(event => event.id === this.data.formData.selectedEvent);
+
+    this.setData({
+      [`formData.selectedEventLocation`]: event.location,
+      [`formData.selectedEventTime`]: event.dateTime,
+    });
   },
 
   /**

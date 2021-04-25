@@ -9,10 +9,10 @@
   </mp-cells>
   <view class="text-info-wrapper">
     <view>
-      <text class="title">Location:</text><text class="text">{{currentEvents[formData.selectedEvent-1].location}}</text>
+      <text class="title">Location:</text><text class="text">{{formData.selectedEventLocation}}</text>
     </view>
     <view>
-      <text class="title">Time:</text><text class="text">{{currentEvents[formData.selectedEvent-1].dateTime}}</text>
+      <text class="title">Time:</text><text class="text">{{formData.selectedEventTime}}</text>
     </view>
   </view>
   <mp-cells title="{{instructions.en.contact.title}}" footer="{{instructions.en.contact.footer}}">
