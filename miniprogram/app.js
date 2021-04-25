@@ -18,7 +18,8 @@ App({
   },
   globalData: {
     currentEvents: undefined,
-    userOpenId: undefined
+    userOpenId: undefined,
+    userSignedUpEvents: undefined,
   },
   loadCurrentEvents: function () {
     const that = this;
@@ -76,5 +77,54 @@ App({
         }
       })
     })
+  },
+  loadUserSignedUpEvents: async function () {
+    const that = this;
+    if (that.globalData.currentEvents) {
+      return Promise.resolve(that.globalData.currentEvents);
+    }
+
+    /**
+     * Make sure currentEvents have been loaded
+     */
+    let currentEvents = that.globalData.currentEvents;
+    if (!currentEvents) {
+      currentEvents = await that.loadCurrentEvents();
+      that.globalData.currentEvents = currentEvents;
+    }
+
+    /**
+     * Make sure currentEvents have been loaded
+     */
+    let userOpenId = that.globalData.userOpenId;
+    if (!userOpenId) {
+      userOpenId = await that.loadUserId();
+      that.globalData.userOpenId = userOpenId;
+    }
+    
+    /**
+     * Make sure currentEvents have been loaded
+     */
+    const eventNames = currentEvents.map(event => event.name);
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: "findSignedUpEvents",
+        data: {
+          userOpenId,
+          eventNames,
+        },
+        success: (res) => {
+          if (res.result) {
+            that.globalData.userSignedUpEvents = res.result;
+            resolve(res.result);
+          } else {
+            reject('Cannot find userSignedUpEvents');
+          }
+        },
+        fail: (msg) => {
+          reject(msg);
+        }
+      });
+    });
   }
 })

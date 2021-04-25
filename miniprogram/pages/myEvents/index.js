@@ -5,7 +5,6 @@ Page({
    * Page initial data
    */
   data: {
-    eventDetails: [],
     signedUpEvents: [],
     selectedEvent: 0,
     tips: 'Please wait ...',
@@ -29,55 +28,6 @@ Page({
       }],
       loadingData: true,
     });
-
-    /**
-     * Get user open id
-     */
-    let userOpenId = app.globalData.userOpenId;
-    if (!userOpenId) {
-      userOpenId = await app.loadUserId();
-    }
-    that.setData({
-      userOpenId
-    })
-
-    /**
-     * Get all of current events
-     */
-    let currentEvents = app.globalData.currentEvents;
-    if (!currentEvents) {
-      currentEvents = await app.loadCurrentEvents();
-    }
-    that.setData({
-      currentEvents
-    })
-
-    /**
-     * Get what the user signed up
-     */
-    that.setData({
-      signedUpEvents: [],
-    });
-    await currentEvents.filter(async (event) => {
-      await wx.cloud.callFunction({
-        name: "findIfSignedUp",
-        data: {
-          userOpenId,
-          eventName: event.name,
-        },
-        success: (res) => {
-          const dataLength = res.result.data.length;
-          if (dataLength > 0) {
-            that.setData({
-              signedUpEvents: [event, ...that.data.signedUpEvents],
-            });
-          }
-          that.setData({
-            loadingData: false,
-          });
-        }
-      });
-    });
   },
 
   /**
@@ -91,7 +41,6 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: async function () {
-    console.log('onshow')
     const that = this;
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
@@ -102,30 +51,18 @@ Page({
     /**
      * Get what the user signed up
      */
-    const currentEvents = app.globalData.currentEvents;
-    that.setData({
-      signedUpEvents: [],
-      loadingData: true,
-    });
-    await currentEvents.filter(async (event) => {
-      await wx.cloud.callFunction({
-        name: "findIfSignedUp",
-        data: {
-          userOpenId: that.data.userOpenId,
-          eventName: event.name,
-        },
-        success: (res) => {
-          const dataLength = res.result.data.length;
-          if (dataLength > 0) {
-            that.setData({
-              signedUpEvents: [event, ...that.data.signedUpEvents],
-            });
-          }
-          that.setData({
-            loadingData: false,
-          });
-        }
+    let signedUpEventNames = app.globalData.userSignedUpEvents;
+    if (!signedUpEventNames) {
+      that.setData({
+        loadingData: true,
       });
+      signedUpEventNames = await app.loadUserSignedUpEvents();
+    }
+    const signedUpEvents = app.globalData.currentEvents.filter(event => signedUpEventNames.includes(event.name));
+
+    that.setData({
+      signedUpEvents,
+      loadingData: false,
     });
   },
 
@@ -197,7 +134,6 @@ Page({
   },
 
   viewEventDetail: function (e) {
-    console.log('viewEventDetail: ', e);
     this.setData({
       selectedEvent: e.currentTarget.dataset.index
     })
