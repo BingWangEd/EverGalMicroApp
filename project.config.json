@@ -1,9 +1,9 @@
 {
   "miniprogramRoot": "miniprogram/",
   "scripts": {
-    "beforeCompile": "yarn run tsc",
-    "beforePreview": "yarn run tsc",
-    "beforeUpload": "yarn run tsc"
+    "beforeCompile": "cd miniprogram; /Users/bing/.nix-profile/bin/yarn run tsc",
+    "beforePreview": "cd miniprogram; /Users/bing/.nix-profile/bin/yarn run tsc",
+    "beforeUpload": "cd miniprogram; /Users/bing/.nix-profile/bin/yarn run tsc"
   },
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
