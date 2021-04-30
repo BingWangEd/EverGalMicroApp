@@ -2,12 +2,12 @@
 const CONFIG = require('./config');
 
 interface IEvent {
-  dataTime: String,
-  headsup: String[],
-  id: Number,
-  location: String,
-  meetSpot: String,
-  name: String
+  dateTime: string,
+  headsup: string[],
+  id: number,
+  location: string,
+  meetSpot: string,
+  name: string
 }
 
 interface IApp extends IAppOption {
@@ -15,7 +15,7 @@ interface IApp extends IAppOption {
     userInfo?: WechatMiniprogram.UserInfo,
     currentEvents?: IEvent[]
     userSignedUpEvents?: IEvent[],
-    userOpenId?: String
+    userOpenId?: string
   },
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
   loadCurrentEvents: () => Promise<IEvent[]>,

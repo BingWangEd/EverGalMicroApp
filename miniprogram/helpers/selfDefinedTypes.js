@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BasePage = void 0;
+var BasePage = (function () {
+    function BasePage() {
+    }
+    return BasePage;
+}());
+exports.BasePage = BasePage;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VsZkRlZmluZWRUeXBlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInNlbGZEZWZpbmVkVHlwZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUE7SUFBQTtJQUtBLENBQUM7SUFBRCxlQUFDO0FBQUQsQ0FBQyxBQUxELElBS0M7QUFMWSw0QkFBUSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBpbnRlcmZhY2UgQmFzZVBhZ2UgZXh0ZW5kcyBXZWNoYXRNaW5pcHJvZ3JhbS5QYWdlLkluc3RhbmNlTWV0aG9kczxXZWNoYXRNaW5pcHJvZ3JhbS5QYWdlLkRhdGFPcHRpb24+IHtcblxufVxuXG5leHBvcnQgY2xhc3MgQmFzZVBhZ2UgaW1wbGVtZW50cyBXZWNoYXRNaW5pcHJvZ3JhbS5QYWdlLk9wdGlvbnM8XG4gICAgV2VjaGF0TWluaXByb2dyYW0uUGFnZS5EYXRhT3B0aW9uLFxuICAgIFdlY2hhdE1pbmlwcm9ncmFtLlBhZ2UuQ3VzdG9tT3B0aW9uXG4+IHtcblxufVxuIl19

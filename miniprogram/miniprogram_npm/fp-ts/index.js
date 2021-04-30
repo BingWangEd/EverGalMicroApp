@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {}, _tempexport
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = __MODS__[modId].m; m._exports = m._tempexports; var desp = Object.getOwnPropertyDescriptor(m, "exports"); if (desp && desp.configurable) Object.defineProperty(m, "exports", { set: function (val) { if(typeof val === "object" && val !== m._exports) { m._exports.__proto__ = val.__proto__; Object.keys(val).forEach(function (k) { m._exports[k] = val[k]; }); } m._tempexports = val }, get: function () { return m._tempexports; } }); __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1619349411467, function(require, module, exports) {
+__DEFINE__(1619915021485, function(require, module, exports) {
 
 /**
  * @since 2.0.0
@@ -253,18 +253,18 @@ exports.writer = writer;
 var writerT = __importStar(require("./WriterT"));
 exports.writerT = writerT;
 
-}, function(modId) {var map = {"./Alt":1619349411468,"./Alternative":1619349411469,"./Applicative":1619349411470,"./Apply":1619349411471,"./Array":1619349411474,"./Bifunctor":1619349411490,"./boolean":1619349411491,"./BooleanAlgebra":1619349411492,"./Bounded":1619349411486,"./BoundedDistributiveLattice":1619349411493,"./BoundedJoinSemilattice":1619349411495,"./BoundedLattice":1619349411496,"./BoundedMeetSemilattice":1619349411497,"./Category":1619349411498,"./Chain":1619349411475,"./ChainRec":1619349411499,"./Choice":1619349411500,"./Comonad":1619349411501,"./Compactable":1619349411502,"./Console":1619349411503,"./Const":1619349411504,"./Contravariant":1619349411505,"./Date":1619349411506,"./DistributiveLattice":1619349411494,"./Either":1619349411507,"./EitherT":1619349411508,"./Eq":1619349411481,"./Extend":1619349411509,"./Field":1619349411487,"./Filterable":1619349411510,"./FilterableWithIndex":1619349411511,"./Foldable":1619349411512,"./FoldableWithIndex":1619349411513,"./FromEither":1619349411514,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./FunctorWithIndex":1619349411517,"./Group":1619349411518,"./HeytingAlgebra":1619349411519,"./HKT":1619349411520,"./Identity":1619349411521,"./Invariant":1619349411522,"./IO":1619349411523,"./IOEither":1619349411524,"./IORef":1619349411525,"./JoinSemilattice":1619349411526,"./Json":1619349411527,"./Lattice":1619349411528,"./Magma":1619349411529,"./Map":1619349411530,"./MeetSemilattice":1619349411532,"./Monad":1619349411533,"./MonadIO":1619349411534,"./MonadTask":1619349411535,"./MonadThrow":1619349411536,"./Monoid":1619349411489,"./NonEmptyArray":1619349411476,"./number":1619349411485,"./Option":1619349411478,"./OptionT":1619349411537,"./Ord":1619349411480,"./Ordering":1619349411538,"./pipeable":1619349411539,"./Pointed":1619349411540,"./Profunctor":1619349411541,"./Random":1619349411542,"./Reader":1619349411543,"./ReaderEither":1619349411544,"./ReaderT":1619349411545,"./ReaderTask":1619349411546,"./ReaderTaskEither":1619349411548,"./ReadonlyArray":1619349411484,"./ReadonlyMap":1619349411531,"./ReadonlyNonEmptyArray":1619349411482,"./ReadonlyRecord":1619349411550,"./ReadonlySet":1619349411551,"./ReadonlyTuple":1619349411552,"./Record":1619349411553,"./Ring":1619349411554,"./Semigroup":1619349411483,"./Semigroupoid":1619349411555,"./Semiring":1619349411556,"./Separated":1619349411479,"./Set":1619349411557,"./Show":1619349411488,"./State":1619349411558,"./StateReaderTaskEither":1619349411559,"./StateT":1619349411560,"./Store":1619349411561,"./string":1619349411562,"./Strong":1619349411563,"./struct":1619349411564,"./Task":1619349411547,"./TaskEither":1619349411549,"./TaskOption":1619349411565,"./TaskThese":1619349411566,"./These":1619349411567,"./TheseT":1619349411568,"./Traced":1619349411569,"./Traversable":1619349411570,"./TraversableWithIndex":1619349411571,"./Tree":1619349411572,"./Tuple":1619349411573,"./Unfoldable":1619349411574,"./ValidationT":1619349411575,"./Witherable":1619349411576,"./Writer":1619349411577,"./WriterT":1619349411578}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411468, function(require, module, exports) {
+}, function(modId) {var map = {"./Alt":1619915021486,"./Alternative":1619915021487,"./Applicative":1619915021488,"./Apply":1619915021489,"./Array":1619915021492,"./Bifunctor":1619915021508,"./boolean":1619915021509,"./BooleanAlgebra":1619915021510,"./Bounded":1619915021504,"./BoundedDistributiveLattice":1619915021511,"./BoundedJoinSemilattice":1619915021513,"./BoundedLattice":1619915021514,"./BoundedMeetSemilattice":1619915021515,"./Category":1619915021516,"./Chain":1619915021493,"./ChainRec":1619915021517,"./Choice":1619915021518,"./Comonad":1619915021519,"./Compactable":1619915021520,"./Console":1619915021521,"./Const":1619915021522,"./Contravariant":1619915021523,"./Date":1619915021524,"./DistributiveLattice":1619915021512,"./Either":1619915021525,"./EitherT":1619915021526,"./Eq":1619915021499,"./Extend":1619915021527,"./Field":1619915021505,"./Filterable":1619915021528,"./FilterableWithIndex":1619915021529,"./Foldable":1619915021530,"./FoldableWithIndex":1619915021531,"./FromEither":1619915021532,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./FunctorWithIndex":1619915021535,"./Group":1619915021536,"./HeytingAlgebra":1619915021537,"./HKT":1619915021538,"./Identity":1619915021539,"./Invariant":1619915021540,"./IO":1619915021541,"./IOEither":1619915021542,"./IORef":1619915021543,"./JoinSemilattice":1619915021544,"./Json":1619915021545,"./Lattice":1619915021546,"./Magma":1619915021547,"./Map":1619915021548,"./MeetSemilattice":1619915021550,"./Monad":1619915021551,"./MonadIO":1619915021552,"./MonadTask":1619915021553,"./MonadThrow":1619915021554,"./Monoid":1619915021507,"./NonEmptyArray":1619915021494,"./number":1619915021503,"./Option":1619915021496,"./OptionT":1619915021555,"./Ord":1619915021498,"./Ordering":1619915021556,"./pipeable":1619915021557,"./Pointed":1619915021558,"./Profunctor":1619915021559,"./Random":1619915021560,"./Reader":1619915021561,"./ReaderEither":1619915021562,"./ReaderT":1619915021563,"./ReaderTask":1619915021564,"./ReaderTaskEither":1619915021566,"./ReadonlyArray":1619915021502,"./ReadonlyMap":1619915021549,"./ReadonlyNonEmptyArray":1619915021500,"./ReadonlyRecord":1619915021568,"./ReadonlySet":1619915021569,"./ReadonlyTuple":1619915021570,"./Record":1619915021571,"./Ring":1619915021572,"./Semigroup":1619915021501,"./Semigroupoid":1619915021573,"./Semiring":1619915021574,"./Separated":1619915021497,"./Set":1619915021575,"./Show":1619915021506,"./State":1619915021576,"./StateReaderTaskEither":1619915021577,"./StateT":1619915021578,"./Store":1619915021579,"./string":1619915021580,"./Strong":1619915021581,"./struct":1619915021582,"./Task":1619915021565,"./TaskEither":1619915021567,"./TaskOption":1619915021583,"./TaskThese":1619915021584,"./These":1619915021585,"./TheseT":1619915021586,"./Traced":1619915021587,"./Traversable":1619915021588,"./TraversableWithIndex":1619915021589,"./Tree":1619915021590,"./Tuple":1619915021591,"./Unfoldable":1619915021592,"./ValidationT":1619915021593,"./Witherable":1619915021594,"./Writer":1619915021595,"./WriterT":1619915021596}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021486, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411469, function(require, module, exports) {
+__DEFINE__(1619915021487, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411470, function(require, module, exports) {
+__DEFINE__(1619915021488, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getApplicativeComposition = exports.getApplicativeMonoid = void 0;
@@ -310,8 +310,8 @@ function getApplicativeComposition(F, G) {
 }
 exports.getApplicativeComposition = getApplicativeComposition;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411471, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021489, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sequenceS = exports.sequenceT = exports.getApplySemigroup = exports.apS = exports.apSecond = exports.apFirst = exports.ap = void 0;
@@ -457,8 +457,8 @@ function sequenceS(F) {
 }
 exports.sequenceS = sequenceS;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411472, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021490, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.hole = exports.pipe = exports.untupled = exports.tupled = exports.absurd = exports.decrement = exports.increment = exports.tuple = exports.flow = exports.flip = exports.constVoid = exports.constUndefined = exports.constNull = exports.constFalse = exports.constTrue = exports.constant = exports.not = exports.unsafeCoerce = exports.identity = exports.getEndomorphismMonoid = exports.getRing = exports.getSemiring = exports.getMonoid = exports.getSemigroup = exports.getBooleanAlgebra = void 0;
@@ -802,7 +802,7 @@ exports.pipe = pipe;
 exports.hole = absurd;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411473, function(require, module, exports) {
+__DEFINE__(1619915021491, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFunctorComposition = exports.bindTo = exports.flap = exports.map = void 0;
@@ -844,8 +844,8 @@ function getFunctorComposition(F, G) {
 }
 exports.getFunctorComposition = getFunctorComposition;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411474, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021492, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -2632,8 +2632,8 @@ exports.array = {
     wilt: _wilt
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./function":1619349411472,"./Functor":1619349411473,"./NonEmptyArray":1619349411476,"./Option":1619349411478,"./ReadonlyArray":1619349411484,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411475, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./function":1619915021490,"./Functor":1619915021491,"./NonEmptyArray":1619915021494,"./Option":1619915021496,"./ReadonlyArray":1619915021502,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021493, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.bind = exports.chainFirst = void 0;
@@ -2650,7 +2650,7 @@ function bind(M) {
 exports.bind = bind;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411476, function(require, module, exports) {
+__DEFINE__(1619915021494, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -3648,8 +3648,8 @@ exports.nonEmptyArray = {
     alt: _alt
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./function":1619349411472,"./Functor":1619349411473,"./internal":1619349411477,"./Option":1619349411478,"./Ord":1619349411480,"./ReadonlyNonEmptyArray":1619349411482}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411477, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./function":1619915021490,"./Functor":1619915021491,"./internal":1619915021495,"./Option":1619915021496,"./Ord":1619915021498,"./ReadonlyNonEmptyArray":1619915021500}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021495, function(require, module, exports) {
 
 var __spreadArray = (this && this.__spreadArray) || function (to, from) {
     for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
@@ -3683,7 +3683,7 @@ var fromReadonlyNonEmptyArray = function (as) { return __spreadArray([as[0]], as
 exports.fromReadonlyNonEmptyArray = fromReadonlyNonEmptyArray;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411478, function(require, module, exports) {
+__DEFINE__(1619915021496, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -4905,8 +4905,8 @@ exports.getApplyMonoid =
 /*#__PURE__*/
 Applicative_1.getApplicativeMonoid(exports.Applicative);
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./function":1619349411472,"./Functor":1619349411473,"./internal":1619349411477,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411479, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./function":1619915021490,"./Functor":1619915021491,"./internal":1619915021495,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021497, function(require, module, exports) {
 
 /**
  * ```ts
@@ -5021,8 +5021,8 @@ exports.left = left;
 var right = function (s) { return s.right; };
 exports.right = right;
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411480, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021498, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ordDate = exports.ordNumber = exports.ordString = exports.ordBoolean = exports.ord = exports.getDualOrd = exports.getTupleOrd = exports.between = exports.clamp = exports.max = exports.min = exports.geq = exports.leq = exports.gt = exports.lt = exports.Contravariant = exports.getMonoid = exports.getSemigroup = exports.URI = exports.contramap = exports.reverse = exports.tuple = exports.fromCompare = exports.equalsDefault = void 0;
@@ -5362,8 +5362,8 @@ exports.ordNumber,
 /*#__PURE__*/
 exports.contramap(function (date) { return date.valueOf(); }));
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411481, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021499, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.eqDate = exports.eqNumber = exports.eqString = exports.eqBoolean = exports.eq = exports.strictEqual = exports.getStructEq = exports.getTupleEq = exports.Contravariant = exports.getMonoid = exports.getSemigroup = exports.eqStrict = exports.URI = exports.contramap = exports.tuple = exports.struct = exports.fromEquals = void 0;
@@ -5553,8 +5553,8 @@ exports.eqDate = {
     equals: function (first, second) { return first.valueOf() === second.valueOf(); }
 };
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411482, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021500, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -6602,8 +6602,8 @@ exports.readonlyNonEmptyArray = {
     alt: _alt
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./Eq":1619349411481,"./function":1619349411472,"./Functor":1619349411473,"./internal":1619349411477,"./Option":1619349411478,"./Ord":1619349411480,"./Semigroup":1619349411483}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411483, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./Eq":1619915021499,"./function":1619915021490,"./Functor":1619915021491,"./internal":1619915021495,"./Option":1619915021496,"./Ord":1619915021498,"./Semigroup":1619915021501}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021501, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -7014,8 +7014,8 @@ exports.semigroupProduct = {
     concat: function (x, y) { return x * y; }
 };
 
-}, function(modId) { var map = {"./function":1619349411472,"./internal":1619349411477,"./Ord":1619349411480}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411484, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./internal":1619915021495,"./Ord":1619915021498}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021502, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -8928,8 +8928,8 @@ exports.readonlyArray = {
     wilt: _wilt
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./Eq":1619349411481,"./function":1619349411472,"./Functor":1619349411473,"./number":1619349411485,"./Option":1619349411478,"./Ord":1619349411480,"./ReadonlyNonEmptyArray":1619349411482,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411485, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./Eq":1619915021499,"./function":1619915021490,"./Functor":1619915021491,"./number":1619915021503,"./Option":1619915021496,"./Ord":1619915021498,"./ReadonlyNonEmptyArray":1619915021500,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021503, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -9049,8 +9049,8 @@ exports.MonoidSum = Monoid_1.monoidSum;
 // tslint:disable-next-line: deprecation
 exports.MonoidProduct = Monoid_1.monoidProduct;
 
-}, function(modId) { var map = {"./Bounded":1619349411486,"./Eq":1619349411481,"./Field":1619349411487,"./Ord":1619349411480,"./Show":1619349411488,"./Semigroup":1619349411483,"./Monoid":1619349411489}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411486, function(require, module, exports) {
+}, function(modId) { var map = {"./Bounded":1619915021504,"./Eq":1619915021499,"./Field":1619915021505,"./Ord":1619915021498,"./Show":1619915021506,"./Semigroup":1619915021501,"./Monoid":1619915021507}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021504, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.boundedNumber = void 0;
@@ -9083,8 +9083,8 @@ exports.boundedNumber = {
     bottom: -Infinity
 };
 
-}, function(modId) { var map = {"./Ord":1619349411480}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411487, function(require, module, exports) {
+}, function(modId) { var map = {"./Ord":1619915021498}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021505, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fieldNumber = exports.lcm = exports.gcd = void 0;
@@ -9135,7 +9135,7 @@ exports.fieldNumber = {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411488, function(require, module, exports) {
+__DEFINE__(1619915021506, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -9256,8 +9256,8 @@ exports.showNumber = {
     show: function (a) { return JSON.stringify(a); }
 };
 
-}, function(modId) { var map = {"./internal":1619349411477}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411489, function(require, module, exports) {
+}, function(modId) { var map = {"./internal":1619915021495}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021507, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -9569,13 +9569,13 @@ exports.monoidProduct = {
     empty: 1
 };
 
-}, function(modId) { var map = {"./function":1619349411472,"./internal":1619349411477,"./Semigroup":1619349411483}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411490, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./internal":1619915021495,"./Semigroup":1619915021501}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021508, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411491, function(require, module, exports) {
+__DEFINE__(1619915021509, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -9746,8 +9746,8 @@ exports.Ord = O.ordBoolean;
 // tslint:disable-next-line: deprecation
 exports.Show = S.showBoolean;
 
-}, function(modId) { var map = {"./BooleanAlgebra":1619349411492,"./Eq":1619349411481,"./Semigroup":1619349411483,"./Monoid":1619349411489,"./Ord":1619349411480,"./Show":1619349411488}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411492, function(require, module, exports) {
+}, function(modId) { var map = {"./BooleanAlgebra":1619915021510,"./Eq":1619915021499,"./Semigroup":1619915021501,"./Monoid":1619915021507,"./Ord":1619915021498,"./Show":1619915021506}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021510, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFunctionBooleanAlgebra = exports.booleanAlgebraBoolean = exports.getDualBooleanAlgebra = exports.booleanAlgebraVoid = exports.reverse = void 0;
@@ -9820,8 +9820,8 @@ exports.booleanAlgebraBoolean = {
  */
 exports.getFunctionBooleanAlgebra = function_1.getBooleanAlgebra;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411493, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021511, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMinMaxBoundedDistributiveLattice = void 0;
@@ -9844,8 +9844,8 @@ function getMinMaxBoundedDistributiveLattice(O) {
 }
 exports.getMinMaxBoundedDistributiveLattice = getMinMaxBoundedDistributiveLattice;
 
-}, function(modId) { var map = {"./DistributiveLattice":1619349411494}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411494, function(require, module, exports) {
+}, function(modId) { var map = {"./DistributiveLattice":1619915021512}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021512, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMinMaxDistributiveLattice = void 0;
@@ -9865,28 +9865,28 @@ function getMinMaxDistributiveLattice(O) {
 }
 exports.getMinMaxDistributiveLattice = getMinMaxDistributiveLattice;
 
-}, function(modId) { var map = {"./Ord":1619349411480}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411495, function(require, module, exports) {
+}, function(modId) { var map = {"./Ord":1619915021498}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021513, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411496, function(require, module, exports) {
+__DEFINE__(1619915021514, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411497, function(require, module, exports) {
+__DEFINE__(1619915021515, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411498, function(require, module, exports) {
+__DEFINE__(1619915021516, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411499, function(require, module, exports) {
+__DEFINE__(1619915021517, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tailRec = void 0;
@@ -9903,7 +9903,7 @@ var tailRec = function (startWith, f) {
 exports.tailRec = tailRec;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411500, function(require, module, exports) {
+__DEFINE__(1619915021518, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fanin = exports.splitChoice = exports.fanIn = exports.split = void 0;
@@ -9928,13 +9928,13 @@ function fanin(F) {
 }
 exports.fanin = fanin;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411501, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021519, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411502, function(require, module, exports) {
+__DEFINE__(1619915021520, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -9982,8 +9982,8 @@ function getCompactableComposition(F, G) {
 }
 exports.getCompactableComposition = getCompactableComposition;
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411503, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021521, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.info = exports.error = exports.warn = exports.log = void 0;
@@ -10009,7 +10009,7 @@ var info = function (a) { return function () { return console.info(a); }; }; // 
 exports.info = info;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411504, function(require, module, exports) {
+__DEFINE__(1619915021522, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.const_ = exports.Bifunctor = exports.Contravariant = exports.flap = exports.Functor = exports.URI = exports.mapLeft = exports.bimap = exports.map = exports.contramap = exports.getApplicative = exports.getApply = exports.getBooleanAlgebra = exports.getHeytingAlgebra = exports.getRing = exports.getSemiring = exports.getMonoid = exports.getSemigroup = exports.getBounded = exports.getOrd = exports.getEq = exports.getShow = exports.make = void 0;
@@ -10209,13 +10209,13 @@ exports.const_ = {
     mapLeft: _mapLeft
 };
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411505, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021523, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411506, function(require, module, exports) {
+__DEFINE__(1619915021524, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -10303,8 +10303,8 @@ exports.create = create;
 var now = function () { return new Date().getTime(); };
 exports.now = now;
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./Ord":1619349411480}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411507, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./Ord":1619915021498}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021525, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -11638,8 +11638,8 @@ function getValidation(SE) {
 }
 exports.getValidation = getValidation;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./ChainRec":1619349411499,"./function":1619349411472,"./Functor":1619349411473,"./internal":1619349411477,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411508, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./ChainRec":1619915021517,"./function":1619915021490,"./Functor":1619915021491,"./internal":1619915021495,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021526, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -11769,13 +11769,13 @@ function getEitherM(M) {
 }
 exports.getEitherM = getEitherM;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Either":1619349411507,"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411509, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Either":1619915021525,"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021527, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411510, function(require, module, exports) {
+__DEFINE__(1619915021528, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFilterableComposition = exports.partitionMap = exports.partition = exports.filterMap = exports.filter = void 0;
@@ -11834,13 +11834,13 @@ function getFilterableComposition(F, G) {
 }
 exports.getFilterableComposition = getFilterableComposition;
 
-}, function(modId) { var map = {"./Compactable":1619349411502,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411511, function(require, module, exports) {
+}, function(modId) { var map = {"./Compactable":1619915021520,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021529, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411512, function(require, module, exports) {
+__DEFINE__(1619915021530, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFoldableComposition = exports.toArray = exports.foldM = exports.traverse_ = exports.toReadonlyArray = exports.intercalate = exports.reduceM = exports.reduceRight = exports.foldMap = exports.reduce = void 0;
@@ -11917,8 +11917,8 @@ function getFoldableComposition(F, G) {
 }
 exports.getFoldableComposition = getFoldableComposition;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411513, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021531, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFoldableWithIndexComposition = exports.reduceRightWithIndex = exports.foldMapWithIndex = exports.reduceWithIndex = void 0;
@@ -11976,8 +11976,8 @@ function getFoldableWithIndexComposition(F, G) {
 }
 exports.getFoldableWithIndexComposition = getFoldableWithIndexComposition;
 
-}, function(modId) { var map = {"./Foldable":1619349411512,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411514, function(require, module, exports) {
+}, function(modId) { var map = {"./Foldable":1619915021530,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021532, function(require, module, exports) {
 
 /**
  * The `FromEither` type class represents those data types which support errors.
@@ -12049,8 +12049,8 @@ function filterOrElse(F, M) {
 }
 exports.filterOrElse = filterOrElse;
 
-}, function(modId) { var map = {"./Either":1619349411507,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411515, function(require, module, exports) {
+}, function(modId) { var map = {"./Either":1619915021525,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021533, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.chainFirstIOK = exports.chainIOK = exports.fromIOK = void 0;
@@ -12078,8 +12078,8 @@ function chainFirstIOK(F, M) {
 }
 exports.chainFirstIOK = chainFirstIOK;
 
-}, function(modId) { var map = {"./Chain":1619349411475,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411516, function(require, module, exports) {
+}, function(modId) { var map = {"./Chain":1619915021493,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021534, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.chainFirstTaskK = exports.chainTaskK = exports.fromTaskK = void 0;
@@ -12107,8 +12107,8 @@ function chainFirstTaskK(F, M) {
 }
 exports.chainFirstTaskK = chainFirstTaskK;
 
-}, function(modId) { var map = {"./Chain":1619349411475,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411517, function(require, module, exports) {
+}, function(modId) { var map = {"./Chain":1619915021493,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021535, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFunctorWithIndexComposition = exports.mapWithIndex = void 0;
@@ -12142,18 +12142,18 @@ function getFunctorWithIndexComposition(F, G) {
 }
 exports.getFunctorWithIndexComposition = getFunctorWithIndexComposition;
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411518, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021536, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411519, function(require, module, exports) {
+__DEFINE__(1619915021537, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411520, function(require, module, exports) {
+__DEFINE__(1619915021538, function(require, module, exports) {
 
 /**
  * Type defunctionalization (as describe in [Lightweight higher-kinded polymorphism](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf))
@@ -12163,7 +12163,7 @@ __DEFINE__(1619349411520, function(require, module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411521, function(require, module, exports) {
+__DEFINE__(1619915021539, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.identity = exports.apS = exports.bind = exports.bindTo = exports.Do = exports.ChainRec = exports.Comonad = exports.Alt = exports.Traversable = exports.Foldable = exports.chainFirst = exports.Monad = exports.Chain = exports.Applicative = exports.apSecond = exports.apFirst = exports.Apply = exports.Pointed = exports.flap = exports.Functor = exports.getEq = exports.getShow = exports.URI = exports.alt = exports.altW = exports.sequence = exports.traverse = exports.reduceRight = exports.foldMap = exports.reduce = exports.flatten = exports.duplicate = exports.extract = exports.extend = exports.chain = exports.of = exports.ap = exports.map = void 0;
@@ -12529,13 +12529,13 @@ exports.identity = {
     chainRec: _chainRec
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./ChainRec":1619349411499,"./function":1619349411472,"./Functor":1619349411473,"./Chain":1619349411475}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411522, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./ChainRec":1619915021517,"./function":1619915021490,"./Functor":1619915021491,"./Chain":1619915021493}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021540, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411523, function(require, module, exports) {
+__DEFINE__(1619915021541, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMonoid = exports.getSemigroup = exports.io = exports.sequenceArray = exports.traverseArray = exports.traverseArrayWithIndex = exports.apS = exports.bind = exports.bindTo = exports.Do = exports.FromIO = exports.ChainRec = exports.MonadIO = exports.chainFirst = exports.Monad = exports.Chain = exports.Applicative = exports.apSecond = exports.apFirst = exports.Apply = exports.Pointed = exports.flap = exports.Functor = exports.URI = exports.fromIO = exports.flatten = exports.chain = exports.of = exports.ap = exports.map = void 0;
@@ -12853,8 +12853,8 @@ exports.getMonoid =
 /*#__PURE__*/
 Applicative_1.getApplicativeMonoid(exports.Applicative);
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./function":1619349411472,"./Functor":1619349411473,"./Chain":1619349411475}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411524, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./function":1619915021490,"./Functor":1619915021491,"./Chain":1619915021493}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021542, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -13708,8 +13708,8 @@ function getIOValidation(SE) {
 }
 exports.getIOValidation = getIOValidation;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./Compactable":1619349411502,"./Either":1619349411507,"./EitherT":1619349411508,"./Filterable":1619349411510,"./FromEither":1619349411514,"./FromIO":1619349411515,"./function":1619349411472,"./Functor":1619349411473,"./IO":1619349411523}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411525, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./Compactable":1619915021520,"./Either":1619915021525,"./EitherT":1619915021526,"./Filterable":1619915021528,"./FromEither":1619915021532,"./FromIO":1619915021533,"./function":1619915021490,"./Functor":1619915021491,"./IO":1619915021541}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021543, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.newIORef = exports.IORef = void 0;
@@ -13762,7 +13762,7 @@ function newIORef(a) {
 exports.newIORef = newIORef;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411526, function(require, module, exports) {
+__DEFINE__(1619915021544, function(require, module, exports) {
 
 /**
  * A join-semilattice (or upper semilattice) is a semilattice whose operation is called `join`, and which can be thought
@@ -13779,7 +13779,7 @@ __DEFINE__(1619349411526, function(require, module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411527, function(require, module, exports) {
+__DEFINE__(1619915021545, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringify = exports.parse = void 0;
@@ -13829,13 +13829,13 @@ exports.parse = parse;
 var stringify = function (a) { return Either_1.stringifyJSON(a, function_1.identity); };
 exports.stringify = stringify;
 
-}, function(modId) { var map = {"./Either":1619349411507,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411528, function(require, module, exports) {
+}, function(modId) { var map = {"./Either":1619915021525,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021546, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411529, function(require, module, exports) {
+__DEFINE__(1619915021547, function(require, module, exports) {
 
 /**
  * A `Magma` is a pair `(A, concat)` in which `A` is a non-empty set and `concat` is a binary operation on `A`
@@ -13847,7 +13847,7 @@ __DEFINE__(1619349411529, function(require, module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411530, function(require, module, exports) {
+__DEFINE__(1619915021548, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -14570,8 +14570,8 @@ exports.insertAt = exports.upsertAt;
  */
 exports.map_ = exports.Filterable;
 
-}, function(modId) { var map = {"./Either":1619349411507,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./ReadonlyMap":1619349411531,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411531, function(require, module, exports) {
+}, function(modId) { var map = {"./Either":1619915021525,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./ReadonlyMap":1619915021549,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021549, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -15433,8 +15433,8 @@ exports.readonlyMap = {
     partitionMap: _partitionMap
 };
 
-}, function(modId) { var map = {"./Either":1619349411507,"./Eq":1619349411481,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411532, function(require, module, exports) {
+}, function(modId) { var map = {"./Either":1619915021525,"./Eq":1619915021499,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021550, function(require, module, exports) {
 
 /**
  * A meet-semilattice (or lower semilattice) is a semilattice whose operation is called `meet`, and which can be thought
@@ -15451,27 +15451,27 @@ __DEFINE__(1619349411532, function(require, module, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411533, function(require, module, exports) {
+__DEFINE__(1619915021551, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411534, function(require, module, exports) {
+__DEFINE__(1619915021552, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411535, function(require, module, exports) {
+__DEFINE__(1619915021553, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411536, function(require, module, exports) {
+__DEFINE__(1619915021554, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411537, function(require, module, exports) {
+__DEFINE__(1619915021555, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -15598,8 +15598,8 @@ function getOptionM(M) {
 }
 exports.getOptionM = getOptionM;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411538, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021556, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.monoidOrdering = exports.eqOrdering = exports.semigroupOrdering = exports.invert = exports.sign = exports.Monoid = exports.Semigroup = exports.Eq = exports.reverse = exports.match = void 0;
@@ -15692,7 +15692,7 @@ exports.eqOrdering = exports.Eq;
 exports.monoidOrdering = exports.Monoid;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411539, function(require, module, exports) {
+__DEFINE__(1619915021557, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pipe = exports.pipeable = void 0;
@@ -15856,18 +15856,18 @@ exports.pipeable = pipeable;
  */
 exports.pipe = function_1.pipe;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411540, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021558, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411541, function(require, module, exports) {
+__DEFINE__(1619915021559, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411542, function(require, module, exports) {
+__DEFINE__(1619915021560, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.randomElem = exports.randomBool = exports.randomRange = exports.randomInt = exports.random = void 0;
@@ -15923,8 +15923,8 @@ var randomElem = function (as) {
 };
 exports.randomElem = randomElem;
 
-}, function(modId) { var map = {"./IO":1619349411523,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411543, function(require, module, exports) {
+}, function(modId) { var map = {"./IO":1619915021541,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021561, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -16358,8 +16358,8 @@ exports.getMonoid =
 /*#__PURE__*/
 Applicative_1.getApplicativeMonoid(exports.Applicative);
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Either":1619349411507,"./function":1619349411472,"./Functor":1619349411473,"./Chain":1619349411475}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411544, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Either":1619915021525,"./function":1619915021490,"./Functor":1619915021491,"./Chain":1619915021493}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021562, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -17083,8 +17083,8 @@ exports.getReaderValidation = getReaderValidation;
  */
 exports.local = R.local;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./Compactable":1619349411502,"./Either":1619349411507,"./EitherT":1619349411508,"./Filterable":1619349411510,"./FromEither":1619349411514,"./function":1619349411472,"./Functor":1619349411473,"./Reader":1619349411543}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411545, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./Compactable":1619915021520,"./Either":1619915021525,"./EitherT":1619915021526,"./Filterable":1619915021528,"./FromEither":1619915021532,"./function":1619915021490,"./Functor":1619915021491,"./Reader":1619915021561}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021563, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getReaderM = exports.fromReader = exports.chain = exports.ap = exports.map = exports.of = void 0;
@@ -17129,8 +17129,8 @@ function getReaderM(M) {
 }
 exports.getReaderM = getReaderM;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411546, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021564, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -17646,8 +17646,8 @@ exports.run = run;
  */
 exports.local = R.local;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./Reader":1619349411543,"./ReaderT":1619349411545,"./Task":1619349411547}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411547, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./Reader":1619915021561,"./ReaderT":1619915021563,"./Task":1619915021565}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021565, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMonoid = exports.getSemigroup = exports.taskSeq = exports.task = exports.sequenceSeqArray = exports.traverseSeqArray = exports.traverseSeqArrayWithIndex = exports.sequenceArray = exports.traverseArray = exports.traverseArrayWithIndex = exports.apS = exports.bind = exports.bindTo = exports.Do = exports.never = exports.FromTask = exports.chainFirstIOK = exports.chainIOK = exports.fromIOK = exports.FromIO = exports.chainFirst = exports.MonadTask = exports.MonadIO = exports.Monad = exports.Chain = exports.ApplicativeSeq = exports.ApplySeq = exports.ApplicativePar = exports.apSecond = exports.apFirst = exports.ApplyPar = exports.Pointed = exports.flap = exports.Functor = exports.getRaceMonoid = exports.URI = exports.fromTask = exports.flatten = exports.chain = exports.of = exports.ap = exports.map = exports.delay = exports.fromIO = void 0;
@@ -18158,8 +18158,8 @@ exports.getMonoid =
 /*#__PURE__*/
 Applicative_1.getApplicativeMonoid(exports.ApplicativeSeq);
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./FromIO":1619349411515,"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411548, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./FromIO":1619915021533,"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021566, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -19187,8 +19187,8 @@ exports.run = run;
  */
 exports.local = R.local;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./Compactable":1619349411502,"./Either":1619349411507,"./EitherT":1619349411508,"./Filterable":1619349411510,"./FromEither":1619349411514,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./Reader":1619349411543,"./ReaderTask":1619349411546,"./Task":1619349411547,"./TaskEither":1619349411549}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411549, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./Compactable":1619915021520,"./Either":1619915021525,"./EitherT":1619915021526,"./Filterable":1619915021528,"./FromEither":1619915021532,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./Reader":1619915021561,"./ReaderTask":1619915021564,"./Task":1619915021565,"./TaskEither":1619915021567}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021567, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -20226,8 +20226,8 @@ function getTaskValidation(SE) {
 }
 exports.getTaskValidation = getTaskValidation;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Apply":1619349411471,"./Chain":1619349411475,"./Compactable":1619349411502,"./Either":1619349411507,"./EitherT":1619349411508,"./Filterable":1619349411510,"./FromEither":1619349411514,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./Task":1619349411547}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411550, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Apply":1619915021489,"./Chain":1619915021493,"./Compactable":1619915021520,"./Either":1619915021525,"./EitherT":1619915021526,"./Filterable":1619915021528,"./FromEither":1619915021532,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./Task":1619915021565}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021568, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -21096,8 +21096,8 @@ exports.readonlyRecord = {
     wilt: _wilt
 };
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./function":1619349411472,"./Functor":1619349411473,"./internal":1619349411477,"./Option":1619349411478,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411551, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./function":1619915021490,"./Functor":1619915021491,"./internal":1619915021495,"./Option":1619915021496,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021569, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fromArray = exports.toReadonlyArray = exports.elem = exports.isSubset = exports.every = exports.some = exports.size = exports.isEmpty = exports.empty = exports.filterMap = exports.separate = exports.compact = exports.fromReadonlyArray = exports.toggle = exports.remove = exports.insert = exports.singleton = exports.foldMap = exports.reduce = exports.getIntersectionSemigroup = exports.getUnionMonoid = exports.difference = exports.partitionMap = exports.intersection = exports.union = exports.partition = exports.filter = exports.chain = exports.map = exports.getEq = exports.getShow = exports.toSet = exports.fromSet = void 0;
@@ -21556,8 +21556,8 @@ exports.toReadonlyArray = toReadonlyArray;
  */
 exports.fromArray = exports.fromReadonlyArray;
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./function":1619349411472,"./Separated":1619349411479}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411552, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./function":1619915021490,"./Separated":1619915021497}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021570, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readonlyTuple = exports.mapLeft = exports.map = exports.Traversable = exports.Foldable = exports.Comonad = exports.Semigroupoid = exports.Bifunctor = exports.flap = exports.Functor = exports.URI = exports.sequence = exports.traverse = exports.reduceRight = exports.foldMap = exports.reduce = exports.duplicate = exports.extract = exports.extend = exports.compose = exports.mapSnd = exports.mapFst = exports.bimap = exports.getChainRec = exports.getMonad = exports.getChain = exports.getApplicative = exports.getApply = exports.swap = exports.snd = exports.fst = void 0;
@@ -21925,8 +21925,8 @@ exports.readonlyTuple = {
     sequence: exports.sequence
 };
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411553, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021571, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -22530,8 +22530,8 @@ exports.record = {
     wilt: _wilt
 };
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./ReadonlyRecord":1619349411550}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411554, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./ReadonlyRecord":1619915021568}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021572, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFunctionRing = exports.getTupleRing = exports.negate = exports.tuple = void 0;
@@ -22611,13 +22611,13 @@ exports.getTupleRing = exports.tuple;
  */
 exports.getFunctionRing = function_1.getRing;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411555, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021573, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411556, function(require, module, exports) {
+__DEFINE__(1619915021574, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFunctionSemiring = void 0;
@@ -22657,8 +22657,8 @@ var function_1 = require("./function");
  */
 exports.getFunctionSemiring = function_1.getSemiring;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411557, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021575, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -23072,8 +23072,8 @@ exports.toArray = toArray;
  */
 exports.subset = RS.isSubset;
 
-}, function(modId) { var map = {"./Separated":1619349411479,"./function":1619349411472,"./ReadonlySet":1619349411551}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411558, function(require, module, exports) {
+}, function(modId) { var map = {"./Separated":1619915021497,"./function":1619915021490,"./ReadonlySet":1619915021569}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021576, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.state = exports.execState = exports.evalState = exports.sequenceArray = exports.traverseArray = exports.traverseArrayWithIndex = exports.apS = exports.bind = exports.bindTo = exports.execute = exports.evaluate = exports.chainFirst = exports.Monad = exports.Chain = exports.Applicative = exports.apSecond = exports.apFirst = exports.Apply = exports.Pointed = exports.flap = exports.Functor = exports.URI = exports.flatten = exports.chain = exports.of = exports.ap = exports.map = exports.gets = exports.modify = exports.put = exports.get = void 0;
@@ -23388,8 +23388,8 @@ exports.execState = execState;
  */
 exports.state = exports.Monad;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./function":1619349411472,"./Functor":1619349411473,"./Chain":1619349411475}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411559, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./function":1619915021490,"./Functor":1619915021491,"./Chain":1619915021493}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021577, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -24271,8 +24271,8 @@ function run(ma, s, r) {
 }
 exports.run = run;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./Either":1619349411507,"./FromEither":1619349411514,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./ReaderTaskEither":1619349411548,"./StateT":1619349411560}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411560, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./Either":1619915021525,"./FromEither":1619915021532,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./ReaderTaskEither":1619915021566,"./StateT":1619915021578}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021578, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStateM = exports.execute = exports.evaluate = exports.fromF = exports.fromState = exports.chain = exports.ap = exports.map = exports.of = void 0;
@@ -24350,8 +24350,8 @@ function getStateM(M) {
 }
 exports.getStateM = getStateM;
 
-}, function(modId) { var map = {"./function":1619349411472,"./ReadonlyTuple":1619349411552}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411561, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./ReadonlyTuple":1619915021570}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021579, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.store = exports.Comonad = exports.flap = exports.Functor = exports.URI = exports.map = exports.duplicate = exports.extract = exports.extend = exports.experiment = exports.peeks = exports.seeks = exports.seek = void 0;
@@ -24481,8 +24481,8 @@ exports.Comonad = {
  */
 exports.store = exports.Comonad;
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411562, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021580, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -24586,8 +24586,8 @@ exports.isEmpty = isEmpty;
 var size = function (s) { return s.length; };
 exports.size = size;
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./Monoid":1619349411489,"./Semigroup":1619349411483,"./Ord":1619349411480,"./Show":1619349411488}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411563, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./Monoid":1619915021507,"./Semigroup":1619915021501,"./Ord":1619915021498,"./Show":1619915021506}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021581, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fanout = exports.splitStrong = exports.fanOut = exports.split = void 0;
@@ -24614,8 +24614,8 @@ function fanout(F) {
 }
 exports.fanout = fanout;
 
-}, function(modId) { var map = {"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411564, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021582, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAssignSemigroup = void 0;
@@ -24646,8 +24646,8 @@ var Semigroup_1 = require("./Semigroup");
 // tslint:disable-next-line: deprecation
 exports.getAssignSemigroup = Semigroup_1.getObjectSemigroup;
 
-}, function(modId) { var map = {"./Semigroup":1619349411483}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411565, function(require, module, exports) {
+}, function(modId) { var map = {"./Semigroup":1619915021501}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021583, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -25330,8 +25330,8 @@ exports.sequenceSeqArray =
 /*#__PURE__*/
 exports.traverseSeqArray(function_1.identity);
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Chain":1619349411475,"./Compactable":1619349411502,"./Filterable":1619349411510,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478,"./OptionT":1619349411537,"./Task":1619349411547}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411566, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Chain":1619915021493,"./Compactable":1619915021520,"./Filterable":1619915021528,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496,"./OptionT":1619915021555,"./Task":1619915021565}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021584, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -25769,8 +25769,8 @@ var getSemigroup = function (SE, SA) {
 };
 exports.getSemigroup = getSemigroup;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./FromEither":1619349411514,"./FromIO":1619349411515,"./FromTask":1619349411516,"./function":1619349411472,"./Functor":1619349411473,"./Task":1619349411547,"./These":1619349411567,"./TheseT":1619349411568}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411567, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./FromEither":1619915021532,"./FromIO":1619915021533,"./FromTask":1619915021534,"./function":1619915021490,"./Functor":1619915021491,"./Task":1619915021565,"./These":1619915021585,"./TheseT":1619915021586}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021585, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.these = exports.toTuple = exports.toTuple2 = exports.fromOptionK = exports.fromOption = exports.FromEither = exports.Traversable = exports.Foldable = exports.Bifunctor = exports.Pointed = exports.flap = exports.Functor = exports.URI = exports.of = exports.sequence = exports.traverse = exports.reduceRight = exports.foldMap = exports.reduce = exports.map = exports.mapLeft = exports.bimap = exports.fromOptions = exports.getRightOnly = exports.getLeftOnly = exports.rightOrBoth = exports.leftOrBoth = exports.isBoth = exports.isRight = exports.isLeft = exports.getRight = exports.getLeft = exports.getMonad = exports.getChain = exports.getApplicative = exports.getApply = exports.getSemigroup = exports.getEq = exports.getShow = exports.swap = exports.fold = exports.match = exports.foldW = exports.matchW = exports.both = exports.right = exports.left = void 0;
@@ -26383,8 +26383,8 @@ exports.these = {
     sequence: exports.sequence
 };
 
-}, function(modId) { var map = {"./Eq":1619349411481,"./FromEither":1619349411514,"./function":1619349411472,"./Functor":1619349411473,"./Option":1619349411478}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411568, function(require, module, exports) {
+}, function(modId) { var map = {"./Eq":1619915021499,"./FromEither":1619915021532,"./function":1619915021490,"./Functor":1619915021491,"./Option":1619915021496}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021586, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -26514,8 +26514,8 @@ function getTheseM(M) {
 }
 exports.getTheseM = getTheseM;
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./function":1619349411472,"./Functor":1619349411473,"./These":1619349411567}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411569, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./function":1619915021490,"./Functor":1619915021491,"./These":1619915021585}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021587, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.traced = exports.flap = exports.Functor = exports.URI = exports.map = exports.getComonad = exports.censor = exports.listens = exports.listen = exports.tracks = void 0;
@@ -26632,8 +26632,8 @@ Functor_1.flap(exports.Functor);
  */
 exports.traced = exports.Functor;
 
-}, function(modId) { var map = {"./Functor":1619349411473,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411570, function(require, module, exports) {
+}, function(modId) { var map = {"./Functor":1619915021491,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021588, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTraversableComposition = exports.sequence = exports.traverse = void 0;
@@ -26679,13 +26679,13 @@ function getTraversableComposition(F, G) {
 }
 exports.getTraversableComposition = getTraversableComposition;
 
-}, function(modId) { var map = {"./Foldable":1619349411512,"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411571, function(require, module, exports) {
+}, function(modId) { var map = {"./Foldable":1619915021530,"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021589, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411572, function(require, module, exports) {
+__DEFINE__(1619915021590, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -27233,8 +27233,8 @@ exports.tree = {
     extend: _extend
 };
 
-}, function(modId) { var map = {"./Apply":1619349411471,"./Array":1619349411474,"./Eq":1619349411481,"./function":1619349411472,"./Functor":1619349411473,"./Chain":1619349411475}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411573, function(require, module, exports) {
+}, function(modId) { var map = {"./Apply":1619915021489,"./Array":1619915021492,"./Eq":1619915021499,"./function":1619915021490,"./Functor":1619915021491,"./Chain":1619915021493}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021591, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -27598,13 +27598,13 @@ exports.tuple = {
     sequence: exports.sequence
 };
 
-}, function(modId) { var map = {"./ReadonlyTuple":1619349411552,"./Functor":1619349411473,"./function":1619349411472}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411574, function(require, module, exports) {
+}, function(modId) { var map = {"./ReadonlyTuple":1619915021570,"./Functor":1619915021491,"./function":1619915021490}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021592, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411575, function(require, module, exports) {
+__DEFINE__(1619915021593, function(require, module, exports) {
 
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -27649,13 +27649,13 @@ function getValidationM(S, M) {
 }
 exports.getValidationM = getValidationM;
 
-}, function(modId) { var map = {"./Applicative":1619349411470,"./Either":1619349411507}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411576, function(require, module, exports) {
+}, function(modId) { var map = {"./Applicative":1619915021488,"./Either":1619915021525}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021594, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411577, function(require, module, exports) {
+__DEFINE__(1619915021595, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.writer = exports.execWriter = exports.evalWriter = exports.execute = exports.evaluate = exports.flap = exports.Functor = exports.getMonad = exports.getChain = exports.getApplicative = exports.getApply = exports.getPointed = exports.URI = exports.map = exports.censor = exports.listens = exports.pass = exports.listen = exports.tell = void 0;
@@ -27879,8 +27879,8 @@ exports.execWriter = execWriter;
  */
 exports.writer = exports.Functor;
 
-}, function(modId) { var map = {"./function":1619349411472,"./Functor":1619349411473}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1619349411578, function(require, module, exports) {
+}, function(modId) { var map = {"./function":1619915021490,"./Functor":1619915021491}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1619915021596, function(require, module, exports) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWriterM = void 0;
@@ -27944,6 +27944,6 @@ function getWriterM(M) {
 exports.getWriterM = getWriterM;
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1619349411467);
+return __REQUIRE__(1619915021485);
 })()
 //# sourceMappingURL=index.js.map
