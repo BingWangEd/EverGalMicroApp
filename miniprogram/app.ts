@@ -1,7 +1,9 @@
-//app.js
+//app.ts
+import * as f from "fp-ts";
+
 const CONFIG = require('./config');
 
-interface IEvent {
+export interface IEvent {
   dateTime: string,
   headsup: string[],
   id: number,
@@ -9,6 +11,28 @@ interface IEvent {
   meetSpot: string,
   name: string
 }
+
+// https://fettblog.eu/typescript-hasownproperty/
+const hasOwnProperty = <X extends {}, Y extends PropertyKey>(obj: X, prop: Y): obj is X & Record<Y, unknown> => {
+  return obj.hasOwnProperty(prop)
+}
+
+const validateCurrentEventsDataFormat = (data: unknown): f.either.Either<Error, IEvent[]> => {
+  if (!Array.isArray(data)) {
+    return f.either.left(new Error('Data is not array.'))
+  }
+
+  const currentEventKeys = ['dateTime', 'headsup', 'id', 'location', 'meetSpot', 'name'];
+  data.forEach((ele) => {
+    Object.keys(currentEventKeys).forEach(key => {
+      if (!hasOwnProperty(ele, key)) {
+        return f.either.left(new Error('Data is not array.'))
+      }
+    })
+  })
+
+  return f.either.right(data as IEvent[]);
+};
 
 interface IApp extends IAppOption {
   globalData: {
@@ -48,18 +72,34 @@ App<IApp>({
     return new Promise((resolve, reject) => {
       wx.cloud.callFunction({
         name: "getCurrentEvents",
-        success: (res: any) => {
-          if (res?.result?.data) {
-            const currentEvents = res.result.data;
-            that.globalData.currentEvents = currentEvents;
-            wx.setStorageSync("currentEvents", currentEvents);
-            resolve(currentEvents);
-          } else {
-            reject(res);
-          }
+        success: (res: unknown) => {
+          const verifyCurrentEventsFromData = (response: unknown) => f.function.pipe(
+            response,
+            (response): f.either.Either<Error, unknown> => 
+              // response.result.data
+              response &&
+                typeof response === 'object' &&
+                hasOwnProperty(response, 'result') &&
+                response.result &&
+                typeof response.result === 'object' &&
+                hasOwnProperty(response.result, 'data') ?
+                f.either.right(response.result.data) : f.either.left(new Error('Data does not exist')),
+            f.either.chain((data) =>
+              validateCurrentEventsDataFormat(data)
+            ),
+            f.either.fold(
+              (error) => reject(error),
+              (verifiedCurrentEvents) => {
+                that.globalData.currentEvents = verifiedCurrentEvents
+                wx.setStorageSync("currentEvents", verifiedCurrentEvents)
+                resolve(verifiedCurrentEvents)
+              }
+            )
+          )
+          verifyCurrentEventsFromData(res);
         },
-        fail: (err) => {
-          reject(err);
+        fail: (error) => {
+          reject(error);
         }
       })
     });
@@ -80,14 +120,26 @@ App<IApp>({
               },
               method:"GET",
               success(res: any) {
-                if (res.data.openid) {
-                  const userOpenId = res.data.openid;
-                  that.globalData.userOpenId = userOpenId;
-                  wx.setStorageSync("userOpenId", userOpenId);
-                  resolve(userOpenId);
-                } else {
-                  reject('Received data does not include user open id');
+                const verifyOpenid = (response: unknown) => {
+                  f.function.pipe(
+                    response,
+                    (response: unknown): f.either.Either<Error, string> =>
+                      response && typeof response === 'object' && hasOwnProperty(response, 'data') &&
+                      response.data && typeof response.data === 'object' &&  hasOwnProperty(response.data, 'openid') && 
+                      response.data.openid && typeof response.data.openid === 'string' ?
+                      f.either.right(response.data.openid) : f.either.left(new Error('Open id does not exist on response')),
+                    f.either.fold(
+                      (error) => reject(error),
+                      (verifiedOpenid) => {
+                        that.globalData.userOpenId = verifiedOpenid;
+                        wx.setStorageSync("userOpenId", verifiedOpenid);
+                        resolve(verifiedOpenid);
+                      }
+                    )
+                  )
                 }
+
+                verifyOpenid(res);
               },
               fail(err) {
                 reject(err)
@@ -132,13 +184,25 @@ App<IApp>({
           userOpenId,
           eventNames,
         },
-        success: (res: any) => {
-          if (res.result) {
-            that.globalData.userSignedUpEvents = res.result;
-            resolve(res.result);
-          } else {
-            reject('Cannot find userSignedUpEvents');
-          }
+        success: (res: unknown) => {
+          const verifyUserSignedUpEvents = (response: unknown) => 
+            f.function.pipe(
+              response,
+              (response: unknown) =>
+                response && typeof response === 'object' && hasOwnProperty(response, 'result') ?
+                  f.either.right(response.result) : f.either.left(new Error('Result does not exist')),
+              f.either.chain((data: unknown) => f.function.pipe(
+                validateCurrentEventsDataFormat(data)
+              )),
+              f.either.fold(
+                (error) => reject(error),
+                (verifiedUserSignedUpEvents: IEvent[]) => {
+                  that.globalData.userSignedUpEvents = verifiedUserSignedUpEvents;
+                  resolve(verifiedUserSignedUpEvents);
+                }
+              )
+            )
+            verifyUserSignedUpEvents(res)
         },
         fail: (msg) => {
           reject(msg);

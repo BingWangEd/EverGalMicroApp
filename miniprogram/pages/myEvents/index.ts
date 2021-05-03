@@ -1,8 +1,6 @@
 // miniprogram/pages/myEvents/index.ts
 
-interface IMyEvents extends IAppOption {
-  
-}
+import { IEvent } from "../../app";
 
 const myEventsApp = getApp();
 

@@ -1,5 +1,7 @@
 // pages/signupForm/index.ts
 
+import { IEvent } from "../../app";
+
 const signupFormApp = getApp();
 
 interface ISignUpFormPageData {
