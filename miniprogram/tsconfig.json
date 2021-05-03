@@ -7,7 +7,7 @@
     "allowJs": false,
     "experimentalDecorators": true,
     "noImplicitThis": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "alwaysStrict": true,
     "inlineSourceMap": true,
     "inlineSources": true,
