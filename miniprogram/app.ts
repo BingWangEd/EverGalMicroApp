@@ -1,50 +1,35 @@
 //app.ts
 import * as f from "fp-ts";
+import * as t from "io-ts";
 
 const CONFIG = require('./config');
 
-export interface IEvent {
-  dateTime: string,
-  headsup: string[],
-  id: number,
-  location: string,
-  meetSpot: string,
-  name: string
-}
+const Event = t.interface({
+  dateTime: t.string,
+  headsup: t.array(t.string),
+  id: t.number, // event id
+  location: t.string,
+  meetSpot: t.string,
+  name: t.string,
+  _id: t.string // WeChat adds user id to record in cloud database
+})
 
-// https://fettblog.eu/typescript-hasownproperty/
-const hasOwnProperty = <X extends {}, Y extends PropertyKey>(obj: X, prop: Y): obj is X & Record<Y, unknown> => {
-  return obj.hasOwnProperty(prop)
-}
+const Events = t.array(Event);
 
-const validateCurrentEventsDataFormat = (data: unknown): f.either.Either<Error, IEvent[]> => {
-  if (!Array.isArray(data)) {
-    return f.either.left(new Error('Data is not array.'))
-  }
-
-  const currentEventKeys = ['dateTime', 'headsup', 'id', 'location', 'meetSpot', 'name'];
-  data.forEach((ele) => {
-    Object.keys(currentEventKeys).forEach(key => {
-      if (!hasOwnProperty(ele, key)) {
-        return f.either.left(new Error('Data is not array.'))
-      }
-    })
-  })
-
-  return f.either.right(data as IEvent[]);
-};
+export type IEvent = t.TypeOf<typeof Event>;
+export type IEvents = t.TypeOf<typeof Events>;
 
 interface IApp extends IAppOption {
   globalData: {
     userInfo?: WechatMiniprogram.UserInfo,
     currentEvents?: IEvent[]
-    userSignedUpEvents?: IEvent[],
+    userSignedUpEvents?: string[],
     userOpenId?: string
   },
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
   loadCurrentEvents: () => Promise<IEvent[]>,
   loadUserId: () => Promise<string>,
-  loadUserSignedUpEvents: () => Promise<IEvent[]>,
+  loadUserSignedUpEvents: () => Promise<string[]>,
 }
 
 App<IApp>({
@@ -73,30 +58,28 @@ App<IApp>({
       wx.cloud.callFunction({
         name: "getCurrentEvents",
         success: (res: unknown) => {
-          const verifyCurrentEventsFromData = (response: unknown) => f.function.pipe(
-            response,
-            (response): f.either.Either<Error, unknown> => 
-              // response.result.data
-              response &&
-                typeof response === 'object' &&
-                hasOwnProperty(response, 'result') &&
-                response.result &&
-                typeof response.result === 'object' &&
-                hasOwnProperty(response.result, 'data') ?
-                f.either.right(response.result.data) : f.either.left(new Error('Data does not exist')),
-            f.either.chain((data) =>
-              validateCurrentEventsDataFormat(data)
-            ),
+          const Result = t.partial({
+            data: Events
+          })
+          const Response = t.partial({
+            result: Result
+          })
+
+          f.function.pipe(
+            Response.decode(res),
             f.either.fold(
               (error) => reject(error),
-              (verifiedCurrentEvents) => {
+              (verifiedResponse) => {
+                const verifiedCurrentEvents = verifiedResponse.result?.data;
+                if (!verifiedCurrentEvents) {
+                  return reject(new Error('Data does not exist'))
+                }
                 that.globalData.currentEvents = verifiedCurrentEvents
                 wx.setStorageSync("currentEvents", verifiedCurrentEvents)
                 resolve(verifiedCurrentEvents)
               }
             )
           )
-          verifyCurrentEventsFromData(res);
         },
         fail: (error) => {
           reject(error);
@@ -120,26 +103,28 @@ App<IApp>({
               },
               method:"GET",
               success(res: any) {
-                const verifyOpenid = (response: unknown) => {
-                  f.function.pipe(
-                    response,
-                    (response: unknown): f.either.Either<Error, string> =>
-                      response && typeof response === 'object' && hasOwnProperty(response, 'data') &&
-                      response.data && typeof response.data === 'object' &&  hasOwnProperty(response.data, 'openid') && 
-                      response.data.openid && typeof response.data.openid === 'string' ?
-                      f.either.right(response.data.openid) : f.either.left(new Error('Open id does not exist on response')),
-                    f.either.fold(
-                      (error) => reject(error),
-                      (verifiedOpenid) => {
-                        that.globalData.userOpenId = verifiedOpenid;
-                        wx.setStorageSync("userOpenId", verifiedOpenid);
-                        resolve(verifiedOpenid);
+                // response.data.openid
+                const openid = t.partial({
+                  openid: t.string
+                })
+                const Response = t.partial({
+                  data: openid
+                })
+                f.function.pipe(
+                  Response.decode(res),
+                  f.either.fold(
+                    (error) => reject(error),
+                    (verifiedResponse) => {
+                      const verifiedOpenid = verifiedResponse.data?.openid;
+                      if (!verifiedOpenid) {
+                        return reject('verifiedOpenid is undefined');
                       }
-                    )
+                      that.globalData.userOpenId = verifiedOpenid;
+                      wx.setStorageSync("userOpenId", verifiedOpenid);
+                      resolve(verifiedOpenid);
+                    }
                   )
-                }
-
-                verifyOpenid(res);
+                )
               },
               fail(err) {
                 reject(err)
@@ -185,24 +170,24 @@ App<IApp>({
           eventNames,
         },
         success: (res: unknown) => {
-          const verifyUserSignedUpEvents = (response: unknown) => 
-            f.function.pipe(
-              response,
-              (response: unknown) =>
-                response && typeof response === 'object' && hasOwnProperty(response, 'result') ?
-                  f.either.right(response.result) : f.either.left(new Error('Result does not exist')),
-              f.either.chain((data: unknown) => f.function.pipe(
-                validateCurrentEventsDataFormat(data)
-              )),
-              f.either.fold(
-                (error) => reject(error),
-                (verifiedUserSignedUpEvents: IEvent[]) => {
-                  that.globalData.userSignedUpEvents = verifiedUserSignedUpEvents;
-                  resolve(verifiedUserSignedUpEvents);
+          // response.result
+          const Response = t.partial({
+            result: t.array(t.string)
+          })
+          f.function.pipe(
+            Response.decode(res),
+            f.either.fold(
+              (error) => reject(error),
+              (verifiedResponse) => {
+                const verifiedUserSignedUpEventNames = verifiedResponse.result;
+                if (!verifiedUserSignedUpEventNames) {
+                  return reject('UserSignedUpEvents does not exist.')
                 }
-              )
+                that.globalData.userSignedUpEvents = verifiedUserSignedUpEventNames;
+                resolve(verifiedUserSignedUpEventNames);
+              }
             )
-            verifyUserSignedUpEvents(res)
+          )
         },
         fail: (msg) => {
           reject(msg);
