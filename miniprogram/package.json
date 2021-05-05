@@ -6,7 +6,8 @@
   "author": "Bing Wang",
   "license": "MIT",
   "dependencies": {
-    "fp-ts": "^2.10.4"
+    "fp-ts": "^2.10.4",
+    "io-ts": "^2.2.16"
   },
   "scripts": {
     "tsc": "node ./node_modules/typescript/lib/tsc.js"

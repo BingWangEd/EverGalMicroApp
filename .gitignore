@@ -12,6 +12,7 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+miniprogram_npm/
 
 # self-added
 *.class
@@ -23,3 +24,7 @@ node_modules/
 
 # Config file #
 config.js
+
+# Generated js files #
+miniprogram/app.js
+miniprogram/**/**/*.js

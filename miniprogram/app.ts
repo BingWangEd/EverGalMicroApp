@@ -1,26 +1,35 @@
-//app.js
+//app.ts
+import * as f from "fp-ts";
+import * as t from "io-ts";
+
 const CONFIG = require('./config');
 
-interface IEvent {
-  dateTime: string,
-  headsup: string[],
-  id: number,
-  location: string,
-  meetSpot: string,
-  name: string
-}
+const Event = t.interface({
+  dateTime: t.string,
+  headsup: t.array(t.string),
+  id: t.number, // event id
+  location: t.string,
+  meetSpot: t.string,
+  name: t.string,
+  _id: t.string // WeChat adds user id to record in cloud database
+})
+
+const Events = t.array(Event);
+
+export type IEvent = t.TypeOf<typeof Event>;
+export type IEvents = t.TypeOf<typeof Events>;
 
 interface IApp extends IAppOption {
   globalData: {
     userInfo?: WechatMiniprogram.UserInfo,
     currentEvents?: IEvent[]
-    userSignedUpEvents?: IEvent[],
+    userSignedUpEvents?: string[],
     userOpenId?: string
   },
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
   loadCurrentEvents: () => Promise<IEvent[]>,
   loadUserId: () => Promise<string>,
-  loadUserSignedUpEvents: () => Promise<IEvent[]>,
+  loadUserSignedUpEvents: () => Promise<string[]>,
 }
 
 App<IApp>({
@@ -48,18 +57,32 @@ App<IApp>({
     return new Promise((resolve, reject) => {
       wx.cloud.callFunction({
         name: "getCurrentEvents",
-        success: (res: any) => {
-          if (res?.result?.data) {
-            const currentEvents = res.result.data;
-            that.globalData.currentEvents = currentEvents;
-            wx.setStorageSync("currentEvents", currentEvents);
-            resolve(currentEvents);
-          } else {
-            reject(res);
-          }
+        success: (res: unknown) => {
+          const Result = t.partial({
+            data: Events
+          })
+          const Response = t.partial({
+            result: Result
+          })
+
+          f.function.pipe(
+            Response.decode(res),
+            f.either.fold(
+              (error) => reject(error),
+              (verifiedResponse) => {
+                const verifiedCurrentEvents = verifiedResponse.result?.data;
+                if (!verifiedCurrentEvents) {
+                  return reject(new Error('Data does not exist'))
+                }
+                that.globalData.currentEvents = verifiedCurrentEvents
+                wx.setStorageSync("currentEvents", verifiedCurrentEvents)
+                resolve(verifiedCurrentEvents)
+              }
+            )
+          )
         },
-        fail: (err) => {
-          reject(err);
+        fail: (error) => {
+          reject(error);
         }
       })
     });
@@ -80,14 +103,28 @@ App<IApp>({
               },
               method:"GET",
               success(res: any) {
-                if (res.data.openid) {
-                  const userOpenId = res.data.openid;
-                  that.globalData.userOpenId = userOpenId;
-                  wx.setStorageSync("userOpenId", userOpenId);
-                  resolve(userOpenId);
-                } else {
-                  reject('Received data does not include user open id');
-                }
+                // response.data.openid
+                const openid = t.partial({
+                  openid: t.string
+                })
+                const Response = t.partial({
+                  data: openid
+                })
+                f.function.pipe(
+                  Response.decode(res),
+                  f.either.fold(
+                    (error) => reject(error),
+                    (verifiedResponse) => {
+                      const verifiedOpenid = verifiedResponse.data?.openid;
+                      if (!verifiedOpenid) {
+                        return reject('verifiedOpenid is undefined');
+                      }
+                      that.globalData.userOpenId = verifiedOpenid;
+                      wx.setStorageSync("userOpenId", verifiedOpenid);
+                      resolve(verifiedOpenid);
+                    }
+                  )
+                )
               },
               fail(err) {
                 reject(err)
@@ -132,13 +169,25 @@ App<IApp>({
           userOpenId,
           eventNames,
         },
-        success: (res: any) => {
-          if (res.result) {
-            that.globalData.userSignedUpEvents = res.result;
-            resolve(res.result);
-          } else {
-            reject('Cannot find userSignedUpEvents');
-          }
+        success: (res: unknown) => {
+          // response.result
+          const Response = t.partial({
+            result: t.array(t.string)
+          })
+          f.function.pipe(
+            Response.decode(res),
+            f.either.fold(
+              (error) => reject(error),
+              (verifiedResponse) => {
+                const verifiedUserSignedUpEventNames = verifiedResponse.result;
+                if (!verifiedUserSignedUpEventNames) {
+                  return reject('UserSignedUpEvents does not exist.')
+                }
+                that.globalData.userSignedUpEvents = verifiedUserSignedUpEventNames;
+                resolve(verifiedUserSignedUpEventNames);
+              }
+            )
+          )
         },
         fail: (msg) => {
           reject(msg);
