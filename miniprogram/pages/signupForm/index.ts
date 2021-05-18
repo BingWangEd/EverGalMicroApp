@@ -23,8 +23,6 @@ interface ISignUpFormPageData {
   })[],
 }
 
-// Page(new SignUpFormPage());
-
 Page({
   /**
    * Page initial data
@@ -178,7 +176,7 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 0
+        selected: 3
       })
     }
 

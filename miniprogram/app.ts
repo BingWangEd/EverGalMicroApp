@@ -9,15 +9,16 @@ export interface IEvent {
   id: number,
   location: string,
   meetSpot: string,
-  name: string
+  name: string,
+  imageId: string,
 }
 
 // https://fettblog.eu/typescript-hasownproperty/
-const hasOwnProperty = <X extends {}, Y extends PropertyKey>(obj: X, prop: Y): obj is X & Record<Y, unknown> => {
+export const hasOwnProperty = <X extends {}, Y extends PropertyKey>(obj: X, prop: Y): obj is X & Record<Y, unknown> => {
   return obj.hasOwnProperty(prop)
 }
 
-const validateCurrentEventsDataFormat = (data: unknown): f.either.Either<Error, IEvent[]> => {
+export const validateCurrentEventsDataFormat = (data: unknown): f.either.Either<Error, IEvent[]> => {
   if (!Array.isArray(data)) {
     return f.either.left(new Error('Data is not array.'))
   }

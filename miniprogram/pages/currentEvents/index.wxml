@@ -1,0 +1,18 @@
+<!--pages/currentEvents/index.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <mp-loading duration="{{900}}" ext-class="demo0" type="dot-gray" show="{{loadingData}}" animated="{{animated}}"></mp-loading>
+  </view>
+</view>
+
+<view wx:if="{{!loadingData && currentEvents.length !== 0}}" class="list-wrapper">
+	<view wx:for="{{currentEvents}}" wx:key="id" class="cell-wrapper">
+		<navigator url="/pages/eventItem/index?eventId={{item.id}}" hover-class="navigator-hover">
+			<view class="entry-wrapper">
+				<image src="{{item.imageId}}" class="image" mode="aspectFill"></image>
+				<text class="title">{{item.name}}</text><text class="date"> - {{item.dateTime}}</text>
+				<button class="signup-btn" bindtap="">Sign Up Now</button>
+			</view>
+		</navigator>
+	</view>
+</view>

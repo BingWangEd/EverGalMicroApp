@@ -1,0 +1,3 @@
+<!--pages/eventItem/index.wxml-->
+<text>pages/eventItem/index.wxml</text>
+<text>"Name: "{{eventData.name}}</text>
