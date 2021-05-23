@@ -1,0 +1,12 @@
+/* pages/components/eventInfo.wxss */
+.page-wrapper {
+  padding: 16px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.text {
+  font-size: 14px;
+}
