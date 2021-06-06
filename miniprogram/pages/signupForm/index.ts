@@ -8,7 +8,8 @@ interface ISignUpFormPageData {
   instructions: { [key: string]: any },
   currentEvents?: IEvent[],
   formData: {
-    selectedEvent: number,
+    selectedEventId: number,
+    selectedEventName: string,
     name?: string,
     mobile?: string,
     email?: string,
@@ -49,7 +50,8 @@ Page({
       }
     },
     formData: {
-      selectedEvent: 1,
+      selectedEventId: 1,
+      selectedEventName: '',
     },
     rules: [
       {
@@ -83,8 +85,11 @@ Page({
 
   // functions
   radioChange: function (e: any) {
+    const eventId = Number(e.detail.value);
+    const eventName = this.data.currentEvents?.find((event: IEvent) => event.id === eventId);
     this.setData({
-      [`formData.selectedEvent`]: Number(e.detail.value),
+      [`formData.selectedEventId`]: eventId,
+      [`formData.selectedEventName`]: eventName,
     });
     this.resetEventDetails();
   },
@@ -120,16 +125,16 @@ Page({
           })
         }
       } else {
-        const { name, selectedEvent, email, mobile } = this.data.formData;
-        const event = this.data.currentEvents?.find((event: IEvent) => event.id === selectedEvent);
+        const { name, selectedEventName, selectedEventId, email, mobile } = this.data.formData;
+
         wx.showToast({
             title: 'Thank you~'
         })
         wx.cloud.callFunction({
           name: "signUp", 
           data: {
-            eventId: selectedEvent,
-            event: event?.name,
+            eventId: selectedEventId,
+            event: selectedEventName,
             name,
             email,
             mobile,
@@ -197,7 +202,7 @@ Page({
   },
 
   resetEventDetails: function () {
-    const event = this.data?.currentEvents && this.data.currentEvents.find((event: IEvent) => event.id === this.data.formData.selectedEvent);
+    const event = this.data?.currentEvents && this.data.currentEvents.find((event: IEvent) => event.id === this.data.formData.selectedEventId);
 
     this.setData({
       [`formData.selectedEventLocation`]: event?.location,

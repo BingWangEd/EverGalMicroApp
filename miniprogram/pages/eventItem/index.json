@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "event-info": "../components/eventInfo/index",
-    "mp-loading": "weui-miniprogram/loading/loading"
+    "mp-loading": "weui-miniprogram/loading/loading",
+    "event-sign-up-form": "../components/signupForm/index"
   }
 }

@@ -8,3 +8,7 @@
 <view wx:if="{{!loadingData}}">
 	<event-info event="{{eventData}}"></event-info>
 </view>
+<!-- add sign up form here -->
+<view class="page">
+  <event-sign-up-form eventId="{{eventData.id}}" eventName="{{eventData.name}}"></event-sign-up-form>
+</view>

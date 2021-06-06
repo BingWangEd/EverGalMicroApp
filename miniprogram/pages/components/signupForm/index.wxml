@@ -1,0 +1,25 @@
+<!--pages/components/signupForm.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}" catchsubmit="{{submitForm}}" class="form">
+  <mp-cells title="{{instructions.en.contact.title}}" footer="{{instructions.en.contact.footer}}">
+    <mp-cell prop="{{instructions.en.contact.name}}" title="{{instructions.en.contact.name}}" ext-class="">
+      <input bindinput="nameInputChange" data-field="name" class="weui-input" name="name"/>
+    </mp-cell>
+    <mp-cell prop="{{instructions.en.contact.mobile}}" title="{{instructions.en.contact.mobile}}" ext-class="">
+      <input bindinput="contactInputChange" data-field="mobile" class="weui-input" name="mobile"/>
+    </mp-cell>
+    <mp-cell prop="{{instructions.en.contact.email}}" title="{{instructions.en.contact.email}}" ext-class="">
+        <input bindinput="contactInputChange" data-field="email" class="weui-input" name="email"/>
+    </mp-cell>
+  </mp-cells>
+  <view class="weui-cells__title">{{instructions.en.other}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea data-field="other" name="other" bindinput="otherInputChange" class="weui-textarea" placeholder="Let us know here ..." style="height: 3.3em" />
+          <view class="weui-textarea-counter">0/200</view>
+        </view>
+      </view>
+  </view>
+  <button class="weui-btn" bindtap="submitForm">{{instructions.en.signUp}}</button>
+</mp-form>
