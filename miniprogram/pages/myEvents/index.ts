@@ -19,12 +19,11 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: async function () {
-    const that = this;
+  onLoad: function () {
     /**
      * Set slide bar icons
      */
-    that.setData({
+    this.setData({
       slideButtons: [{
         type: 'warn',
         text: 'cancel reservation',
@@ -45,7 +44,6 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: async function () {
-    const that = this;
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
@@ -55,13 +53,13 @@ Page({
     /**
      * Get what the user signed up
      */
-    that.setData({
+    this.setData({
       loadingData: true,
     });
     const signedUpEventNames = await myEventsApp.loadUserSignedUpEvents();
     const signedUpEvents = myEventsApp.globalData.currentEvents.filter((event: IEvent) => signedUpEventNames.includes(event.name));
 
-    that.setData({
+    this.setData({
       signedUpEvents,
       loadingData: false,
     });

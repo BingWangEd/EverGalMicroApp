@@ -64,9 +64,6 @@ App<IApp>({
     }
   },
   globalData: {
-    currentEvents: undefined,
-    userOpenId: undefined,
-    userSignedUpEvents: undefined,
   },
   loadCurrentEvents: function () {
     const that = this;
