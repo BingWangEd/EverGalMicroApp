@@ -6,7 +6,7 @@ Component({
   properties: {
     event: {
       type: Object,
-      value: undefined
+      value: {}
     }
   },
 

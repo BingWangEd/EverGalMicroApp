@@ -40,10 +40,16 @@ Page({
       verifyQuery,
       f.either.map((eventId) => {
         const currentEvent = currentEvents.find((event)=> event.id === eventId);
-        that.setData({
-          eventData: currentEvent,
-          loadingData: false
-        })
+        if (currentEvent) {
+          that.setData({
+            eventData: currentEvent,
+            loadingData: false
+          })
+        } else {
+          that.setData({
+            loadingData: false
+          })
+        }
       })
     );
   },
