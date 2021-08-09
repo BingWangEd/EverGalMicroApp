@@ -6,7 +6,9 @@
 
 .weui-btn {
   margin-top: 10px;
-  background-color: #64C0A9;
+  margin-bottom: 10px;
+  background-color: #F2667E;
+  color: white;
 }
 
 .title {
@@ -17,4 +19,41 @@
 
 .text {
   font-size: 14px;
+}
+
+.weui-cells__title {
+  margin-top: .77em;
+  margin-bottom: .3em;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #999999;
+  font-size: 14px;
+}
+
+.weui-cells {
+  position: relative;
+  margin-top: 1.17647059em;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 17px;
+}
+
+.weui-cells_after-title {
+  margin-top: 0;
+}
+
+.weui-cell__bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+
+.weui-textarea {
+  display: block;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 5em;
+  /* min-height: 2.58823529em;
+  line-height: 2.58823529em; */
 }
