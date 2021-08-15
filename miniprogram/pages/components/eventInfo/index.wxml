@@ -1,19 +1,51 @@
 <!--pages/components/eventInfo.wxml-->
 
 <scroll-view>
-	<view class="page-wrapper">
-		<text class="title">{{event.name}} @ {{event.location}}</text>
-	</view>
-	<view class="page-wrapper">
-		<text class="text">We will meet at </text><text class="title">{{event.meetSpot}} on {{event.dateTime}}</text>
-	</view>
-	<view class="page-wrapper">
-		<text class="text">Please pay attention to the following information:</text>
-		<view wx:for="{{event.headsup}}" wx:for-index="idx" wx:key="*this" wx:for-item="itemName" class="title">
-		{{itemName}}
+	<view class="image-container">
+		<view class="image-cover">
+			<view class="title-wrapper">
+				<text class="title">{{event.name}} </text> <text class="at-sign">@</text> <text class="title dosis"> {{event.location}}</text>
+			</view>
+			<view class="image-outline"></view>
+		</view>
+		<image class="image" src="{{event.imageId}}" mode="aspectFill"></image>
+		<view class="date-box">
+			<text class="date-text day-text">{{event.dateTime[1]}}</text>
+			<text class="date-text">{{event.dateTime[0]}}</text>
+			<text class="date-text time-text">{{event.dateTime[4]}}</text>
 		</view>
 	</view>
-	<view class="page-wrapper" style="margin-bottom: 58px;">
-		<text class="text">If you cannot find us, please reach out to ...</text>
+
+	<view class="bullet-point-wrapper" style="margin-top: 102rpx">
+		<image
+        class="icon"
+        src="/images/meetSpot_mint.png"
+    ></image>
+		<view>
+			<text class="text">We will meet at </text>
+			<text class="text-main">{{event.meetSpot}} on {{event.dateTime[0]}} {{event.dateTime[1]}}</text>
+		</view>
+	</view>
+	<view class="bullet-point-wrapper">
+		<image
+        class="icon"
+        src="/images/info_mint.png"
+    ></image>
+		<view>
+			<text class="text">Please pay attention to the following information:</text>
+			<view wx:for="{{event.headsup}}" wx:for-index="idx" wx:key="*this" wx:for-item="itemName" class="text-main">
+			{{itemName}}
+			</view>
+		</view>
+	</view>
+	<view class="bullet-point-wrapper">
+		<image
+			class="icon"
+			src="/images/contact_mint.png"
+		></image>
+		<view>
+			<text class="text">If you cannot find us, please reach out to</text>
+			<text class="text-main"> Serena Wu </text><text class="at-sign">@</text><text class="text-main"> xxxx-xxxx-xxx</text>
+		</view>
 	</view>
 </scroll-view>

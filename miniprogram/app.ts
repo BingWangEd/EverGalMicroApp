@@ -4,7 +4,7 @@ import * as f from "fp-ts";
 const CONFIG = require('./config');
 
 export interface IEvent {
-  dateTime: string,
+  dateTime: string[], // [month, date, year, day, time]
   headsup: string[],
   id: number,
   location: string,
@@ -62,6 +62,13 @@ App<IApp>({
         traceUser: true,
       })
     }
+    wx.loadFontFace({
+      family: 'Dosis',
+      source: 'url("https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap")',
+      success: console.log,
+      fail: console.log,
+      complete: console.log
+    })
   },
   globalData: {
   },
