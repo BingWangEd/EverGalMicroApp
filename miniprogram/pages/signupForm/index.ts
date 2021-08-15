@@ -1,5 +1,5 @@
 // pages/signupForm/index.ts
-
+// To delete
 import { IEvent } from "../../app";
 
 const signupFormApp = getApp();

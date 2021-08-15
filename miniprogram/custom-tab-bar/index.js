@@ -22,12 +22,6 @@ Component({
         "iconPath": "/images/logo_mint_text_scribbled_outline.png",
         "selectedIconPath": "/images/logo_white_text.png",
         "pagePath": "/pages/aboutEverGal/index"
-      },
-      {
-        "text": "Sign Up",
-        "iconPath": "/images/pencil_gray.png",
-        "selectedIconPath": "/images/pencil_mint.png",
-        "pagePath": "/pages/signupForm/index"
       }
     ]
   },
