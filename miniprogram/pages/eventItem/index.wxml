@@ -8,7 +8,17 @@
 <view wx:if="{{!loadingData}}">
 	<event-info event="{{eventData}}"></event-info>
 </view>
-<!-- add sign up form here -->
-<view class="page">
+
+<view wx:if="{{signedUp==='false'}}" class="page">
   <event-sign-up-form eventId="{{eventData.id}}" eventName="{{eventData.name}}"></event-sign-up-form>
+</view>
+
+<view wx:if="{{signedUp==='true'}}" class="page__bd">
+  <view class="weui-slidecells">
+    <mp-slideview buttons="{{slideButtons}}" icon="{{true}}" bindbuttontap="slideButtonTap">
+      <view class="weui-slidecell " style="background-color: {{index === selectedEvent ? '#64C0A9' : '#FFFFFF'}};">
+        <mp-cell value="{{eventData.name}}" footer="slide to cancel"></mp-cell>
+      </view>
+    </mp-slideview>
+  </view>
 </view>

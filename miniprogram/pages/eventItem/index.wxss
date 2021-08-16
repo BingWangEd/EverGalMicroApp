@@ -1,1 +1,5 @@
 /* pages/eventItem/index.wxss */
+
+.weui-slideview_icon .weui-slideview__btn {
+  background-color: #F2667E;
+}

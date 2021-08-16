@@ -3,14 +3,16 @@
 import { IEvent } from "../../app";
 
 const currentEventsApp = getApp();
+interface ICurrentEvent extends IEvent {
+  signedUp: boolean;
+} 
 
 interface currentEventsPageData {
   loadingData: boolean,
-  currentEvents?: IEvent[]
+  currentEvents?: ICurrentEvent[],
 }
 
 Page({
-
     /**
      * Page initial data
      */
@@ -42,6 +44,7 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow: async function () {
+      // TODO: transform this to FP style
 			const that = this;
 			if (typeof this.getTabBar === 'function' &&
 				this.getTabBar()) {
@@ -50,22 +53,30 @@ Page({
 				})
 			}
 
-			let currentEvents = wx.getStorageSync("currentEvents");
+      const signedUpEvents = await currentEventsApp.loadUserSignedUpEvents();
+  
+			const currentEvents = wx.getStorageSync("currentEvents");
 			if (!currentEvents) {
-				currentEventsApp.loadCurrentEvents().then((res: IEvent[]) => {
-					console.log('Loading sign up form. Received currentEvents: ', res);
-					that.setData({
-						currentEvents: res,
-            loadingData: false,
-					})
-				})
-			} else {
-				that.setData({
-					currentEvents: currentEvents,
-          loadingData: false,
-				})
-			}
-      console.log('that.data.currentEvents: ', that.data.currentEvents)
+				console.error('Cannot load currentEvents');
+        return;
+			} 
+      
+      const eventWithSignupStates = currentEvents.map((event: IEvent) => {
+        return signedUpEvents.includes(event.name) ? ({
+          ...event,
+          signedUp: true
+        }) : ({
+          ...event,
+          signedUp: false
+        })
+      })
+      
+      that.setData({
+        currentEvents: eventWithSignupStates,
+        loadingData: false,
+      })
+
+      console.log('that.data.currentEvents: ', that.data.currentEvents);
     },
   
     /**

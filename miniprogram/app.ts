@@ -11,6 +11,7 @@ export interface IEvent {
   meetSpot: string,
   name: string,
   imageId: string,
+  _id?: string,
 }
 
 // https://fettblog.eu/typescript-hasownproperty/

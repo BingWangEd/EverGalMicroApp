@@ -4,7 +4,8 @@ import * as f from "fp-ts";
 
 interface EventItemData {
   loadingData: boolean,
-  eventData?: IEvent
+  eventData: IEvent,
+  signedUp: boolean,
 }
 
 const eventItemApp = getApp();
@@ -27,14 +28,20 @@ Page({
   onLoad: async function (query: unknown) {
     const that = this;
     that.setData({
-      loadingData: true
+      loadingData: true,
+      slideButtons: [{
+        type: 'warn',
+        text: 'cancel reservation',
+        src: '/images/cross_pink.png',
+      }],
     });
     const currentEvents = await getCurrentEvents();
     const verifyQuery = (query: unknown): f.either.Either<Error, number> =>
     query && typeof query === 'object'
     && hasOwnProperty(query, 'eventId') && typeof query.eventId === 'string' ?
     f.either.right(Number(query.eventId)) : f.either.left(new Error('query does not have key: eventId'));
-  
+    // @ts-ignorets-ignore TODO: add check for signedUp
+    console.log('signedup: ', query.signedUp);
     f.function.pipe(
       query,
       verifyQuery,
@@ -43,6 +50,8 @@ Page({
         if (currentEvent) {
           that.setData({
             eventData: currentEvent,
+            // @ts-ignorets-ignore TODO: add check for signedUp
+            signedUp: query.signedUp,
             loadingData: false
           })
         } else {
@@ -52,6 +61,8 @@ Page({
         }
       })
     );
+
+
   },
 
   /**
@@ -101,5 +112,37 @@ Page({
    */
   onShareAppMessage: function () {
     return {}
-  }
+  },
+
+  // Use any as type for now; as official typing does not include event type yet
+  slideButtonTap: function () {
+    const that = this;
+    that.setData({
+      loadingData: true,
+    })
+
+    const event = that.data.eventData as IEvent;
+    const userOpenId = eventItemApp.globalData.userOpenId;
+
+    wx.cloud.callFunction({
+      name: "cancelSignup",
+      data: {
+        userOpenId,
+        eventName: event.name,
+      },
+      success: () => {
+        wx.showToast({
+          title: 'Canceled!',
+          icon: 'success',
+          duration: 2000
+        });
+        that.setData({
+          signedUp: false
+        })
+        that.setData({
+          loadingData: false,
+        })
+      }
+    });
+  },
 })

@@ -7,11 +7,16 @@
 
 <view wx:if="{{!loadingData && currentEvents.length !== 0}}" class="list-wrapper">
 	<view wx:for="{{currentEvents}}" wx:key="id" class="cell-wrapper">
-		<navigator url="/pages/eventItem/index?eventId={{item.id}}" hover-class="navigator-hover">
+		<navigator url="/pages/eventItem/index?eventId={{item.id}}&signedUp={{item.signedUp}}" hover-class="navigator-hover">
 			<view class="entry-wrapper">
 				<image src="{{item.imageId}}" class="image" mode="aspectFill"></image>
 				<text class="title">{{item.name}}</text><text class="date"> - {{item.dateTime[0]}} {{item.dateTime[1]}}</text>
-				<button class="signup-btn" bindtap="">Sign Up Now</button>
+				<view wx:if="{{item.signedUp}}">
+					<button class="modify-btn btn" bindtap="">You're Attending!</button>
+				</view>
+				<view wx:if="{{!item.signedUp}}">
+					<button class="signup-btn btn" bindtap="">Sign Up Now</button>
+				</view>
 			</view>
 		</navigator>
 	</view>
