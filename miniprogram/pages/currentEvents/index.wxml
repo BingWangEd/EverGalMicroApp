@@ -9,13 +9,22 @@
 	<view wx:for="{{currentEvents}}" wx:key="id" class="cell-wrapper">
 		<navigator url="/pages/eventItem/index?eventId={{item.id}}&signedUp={{item.signedUp}}" hover-class="navigator-hover">
 			<view class="entry-wrapper">
-				<image src="{{item.imageId}}" class="image" mode="aspectFill"></image>
-				<text class="title">{{item.name}}</text><text class="date"> - {{item.dateTime[0]}} {{item.dateTime[1]}}</text>
-				<view wx:if="{{item.signedUp}}">
-					<button class="modify-btn btn" bindtap="">You're Attending!</button>
+				<view class="image-container">
+					<image src="{{item.imageId}}" class="image" mode="aspectFill"></image>
+					<view class="date-box">
+						<text class="date-text day-text">{{item.dateTime[1]}}</text>
+						<text class="date-text">{{item.dateTime[0]}}</text>
+						<text class="date-text time-text">{{item.dateTime[4]}}</text>
+					</view>
 				</view>
-				<view wx:if="{{!item.signedUp}}">
-					<button class="signup-btn btn" bindtap="">Sign Up Now</button>
+				<view class="info-container">
+					<text class="title">{{item.name}}</text>
+					<view wx:if="{{item.signedUp}}">
+						<button class="modify-btn btn" bindtap="">You're Attending!</button>
+					</view>
+					<view wx:if="{{!item.signedUp}}">
+						<button class="signup-btn btn" bindtap="">Sign Up Now</button>
+					</view>
 				</view>
 			</view>
 		</navigator>
