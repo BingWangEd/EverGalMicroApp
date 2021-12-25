@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "event-info": "../components/eventInfo/index",
+    "event-info-page": "../components/eventInfoPage/index",
     "mp-loading": "weui-miniprogram/loading/loading",
     "mp-cell": "weui-miniprogram/cell/cell",
     "mp-slideview": "weui-miniprogram/slideview/slideview",

@@ -24,20 +24,6 @@
 </view>
 <scroll-view wx:if="{{signedUpEvents.length > 0}}">
   <view wx:if="{{signedUpEvents[selectedEvent] !== undefined}}">
-    <view class="page-wrapper">
-      <text class="title">{{signedUpEvents[selectedEvent].name}} @ {{signedUpEvents[selectedEvent].location}}</text>
-    </view>
-    <view class="page-wrapper">
-      <text class="text">We will meet at </text><text class="title">{{signedUpEvents[selectedEvent].meetSpot}} on {{signedUpEvents[selectedEvent].dateTime[0]}}</text>
-    </view>
-    <view class="page-wrapper">
-      <text class="text">Please pay attention to the following information:</text>
-      <view wx:for="{{signedUpEvents[selectedEvent].headsup}}" wx:for-index="idx" wx:key="*this" wx:for-item="itemName" class="title">
-        {{itemName}}
-      </view>
-    </view>
-    <view class="page-wrapper" style="margin-bottom: 58px;">
-      <text class="text">If you cannot find us, please reach out to Serena at (xxx)xxx-xxxx</text>
-    </view>
+    <event-details event="{{signedUpEvents[selectedEvent]}}"></event-details>
   </view>
 </scroll-view>

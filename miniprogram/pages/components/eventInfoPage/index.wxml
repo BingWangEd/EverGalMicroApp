@@ -1,0 +1,20 @@
+<!--pages/components/eventInfoPage.wxml-->
+
+<scroll-view>
+	<view class="image-container">
+		<view class="image-cover">
+			<view class="title-wrapper">
+				<text class="title">{{event.name}} </text> <text class="at-sign">@</text> <text class="title dosis"> {{event.location}}</text>
+			</view>
+			<view class="image-outline"></view>
+		</view>
+		<image class="image" src="{{event.imageId}}" mode="aspectFill"></image>
+		<view class="date-box">
+			<text class="date-text day-text">{{event.dateTime[1]}}</text>
+			<text class="date-text">{{event.dateTime[0]}}</text>
+			<text class="date-text time-text">{{event.dateTime[4]}}</text>
+		</view>
+	</view>
+
+	<event-details event="{{event}}"></event-details>
+</scroll-view>

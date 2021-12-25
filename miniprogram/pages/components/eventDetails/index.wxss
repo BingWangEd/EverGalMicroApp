@@ -1,0 +1,30 @@
+/* pages/components/eventDetails/eventDetails.wxss */
+.bullet-point-wrapper {
+  margin-top: 32rpx;
+  padding: 16rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 16rpx;
+}
+
+.text-main {
+  font-weight: bold;
+  color: #999999;
+  font-size: 32rpx;
+}
+
+.text {
+  font-family: 'Dosis';
+  font-size: 16rpx;
+}
+
+.at-sign {
+  color: #64C0A9;
+  font-size: 32rpx;
+  font-weight: bold;
+}

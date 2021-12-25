@@ -6,7 +6,7 @@
   </view>
 </view>
 <view wx:if="{{!loadingData}}">
-	<event-info event="{{eventData}}"></event-info>
+	<event-info-page event="{{eventData}}"></event-info-page>
 </view>
 
 <view wx:if="{{signedUp==='false'}}" class="page">

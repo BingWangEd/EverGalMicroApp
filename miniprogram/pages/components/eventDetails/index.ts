@@ -1,4 +1,10 @@
-// pages/components/eventInfo.js
+import { IEvent } from "../../../app";
+
+// pages/components/eventDetails/eventDetails.js
+interface EventDetails {
+  event: IEvent;
+}
+
 Component({
   /**
    * Component properties
@@ -15,7 +21,7 @@ Component({
    */
   data: {
 
-  },
+  } as EventDetails,
 
   /**
    * Component methods
