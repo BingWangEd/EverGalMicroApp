@@ -1,4 +1,72 @@
 <!--miniprogram/pages/aboutEverGal/index.wxml-->
 <view class="page">
-  <text>about EverGal</text>
+  <view class="top_banner">
+    <view class="hero_wrapper">
+
+      <view class="slogan_wrapper">
+        <image
+          class="icon"
+          src="/images/logo_mint_text.png"
+        ></image>
+        <view class="slogan">
+          <text class="chinese_title">轻运动</text>
+          <text class="chinese_title">悦生活</text>
+          <text class="chinese_title">在上海</text>
+        </view>
+      </view>
+
+      <view class="slogan_bottom">
+        <text class="english_title">A fitness and social community to connect women in Shanghai</text>
+      </view>
+    </view>
+    
+    <view class="top_banner_side">
+      <view class="image_cover"></view>
+      <image
+        src="/images/trainers.JPG"
+        class="top_banner_side_image"
+        mode="aspectFill"
+      ></image> 
+    </view>
+
+    <view class="bottom_right_triangle"></view>
+
+    <image
+      src="/images/about_us.png"
+      class="about_us_title"
+      mode="aspectFit"
+    ></image>
+
+    <view class="dots"></view>
+
+    <image
+      src="/images/instagram.png"
+      class="instagram"
+      mode="aspectFit"
+    ></image>
+  </view>
+  <view class="bottom_banner">
+    <text class="about_us_content">我和我的几个女性朋友常常聚在一起运动，我们也想通过运动的方式认识这座城市里更多有趣的女孩女人。</text>
+    <view class="signature">
+      <text class="signature_intro">双双，爱瑜伽，会二胡的职业经理人</text>
+      <image
+        src="/images/serena.png"
+        class="signature_image"
+        mode="aspectFit"
+      ></image>
+    </view>
+  </view>
+  <view class="bottom_image">
+    <image
+      src="/images/xmas.JPG"
+      mode="aspectFill"
+      class="bottom_team_image"
+    ></image>
+    <view class="top-right-triangle"></view>
+    <image
+      src="/images/playground.JPG"
+      class="bottom_background_image"
+      mode="aspectFill"
+    ></image>
+  </view>
 </view>
