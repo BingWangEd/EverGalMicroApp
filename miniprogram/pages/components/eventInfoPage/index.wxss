@@ -52,7 +52,6 @@
   height: 140rpx;
   position: absolute;
   background-color: #64C0A9;
-  /* border: 6rpx solid #64C0A9; */
   left: calc(50% - 70rpx);
   bottom: -70rpx;
   z-index: 100;
@@ -91,4 +90,12 @@
   height  : 1px;
   width   : 20%;
   border-top: 2rpx solid white;
+}
+
+.event-details {
+  margin: 1rpx;
+}
+
+.at-sign {
+  color: #64C0A9;
 }

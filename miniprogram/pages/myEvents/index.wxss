@@ -14,17 +14,22 @@
 .weui-slidecells{
   margin: 8px;
 }
+
 .weui-slidecell{
   border-radius:8px;
   line-height:1.4;
   font-size:17px;
   color:rgba(0,0,0,.9);
-  /*text-align:right;*/
 }
+
 .weui-slidecell__tips{
   color:rgba(0,0,0,.5);
 }
 
 .weui-slideview_icon .weui-slideview__btn {
   background-color: #F2667E;
+}
+
+.weui-cell__bd {
+  color: #fff;
 }

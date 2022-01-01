@@ -1,6 +1,6 @@
 /* pages/components/eventDetails/eventDetails.wxss */
 .bullet-point-wrapper {
-  margin-top: 32rpx;
+  margin-top: 48rpx;
   padding: 16rpx;
   display: flex;
   flex-direction: row;
@@ -15,16 +15,16 @@
 .text-main {
   font-weight: bold;
   color: #999999;
-  font-size: 32rpx;
+  font-size: 36rpx;
 }
 
 .text {
   font-family: 'Dosis';
-  font-size: 16rpx;
+  font-size: 28rpx;
 }
 
 .at-sign {
   color: #64C0A9;
-  font-size: 32rpx;
+  font-size: 48rpx;
   font-weight: bold;
 }

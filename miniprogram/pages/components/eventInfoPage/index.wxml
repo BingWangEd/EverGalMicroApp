@@ -16,5 +16,5 @@
 		</view>
 	</view>
 
-	<event-details event="{{event}}"></event-details>
+	<event-details event="{{event}}" class="event-details"></event-details>
 </scroll-view>

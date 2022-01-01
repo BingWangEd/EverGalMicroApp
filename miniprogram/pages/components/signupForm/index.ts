@@ -57,14 +57,14 @@ Component({
         name: 'mobile',
         rules: [
           {required: true, message: 'Please fill out your mobile number.'},
-          // { mobile: true, message: 'The format is not correct.' }
+          { mobile: true, message: 'The format is not correct.' }
         ],
       },
       {
         name: 'email',
         rules: [
           { required: true, message: 'Please fill out your email.' },
-          // { email: true, message: 'The format is not correct.' }
+          { email: true, message: 'The format is not correct.' }
         ],
       },
     ],

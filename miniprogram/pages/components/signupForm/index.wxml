@@ -9,7 +9,7 @@
       <input bindinput="contactInputChange" data-field="mobile" class="weui-input" name="mobile"/>
     </mp-cell>
     <mp-cell prop="{{instructions.en.contact.email}}" title="{{instructions.en.contact.email}}" ext-class="">
-        <input bindinput="contactInputChange" data-field="email" class="weui-input" name="email"/>
+      <input bindinput="contactInputChange" data-field="email" class="weui-input" name="email"/>
     </mp-cell>
   </mp-cells>
   <view class="weui-cells__title">{{instructions.en.other}}</view>

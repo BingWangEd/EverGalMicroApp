@@ -3,3 +3,18 @@
 .weui-slideview_icon .weui-slideview__btn {
   background-color: #F2667E;
 }
+
+.page_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.info {
+  display: flex;
+  flex-grow: 1;
+}
+
+.weui-cell__bd {
+  color: #fff;
+}

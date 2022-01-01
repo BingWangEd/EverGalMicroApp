@@ -54,6 +54,4 @@
   padding-left: 15px;
   padding-right: 15px;
   height: 5em;
-  /* min-height: 2.58823529em;
-  line-height: 2.58823529em; */
 }
