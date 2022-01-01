@@ -15,6 +15,6 @@
   flex-grow: 1;
 }
 
-.weui-cell__bd {
+.slide_button .weui-cell__bd {
   color: #fff;
 }

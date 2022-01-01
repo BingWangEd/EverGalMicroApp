@@ -10,18 +10,7 @@ interface ISignUpFormPageData {
   formData: {
     selectedEventId: number,
     selectedEventName: string,
-    name?: string,
-    mobile?: string,
-    email?: string,
-    other?: string,
   },
-  rules: ({
-    name: string,
-    rules: ({
-      required: boolean,
-      message: string
-    })[]
-  })[],
 }
 
 Page({
@@ -53,109 +42,9 @@ Page({
       selectedEventId: 1,
       selectedEventName: '',
     },
-    rules: [
-      {
-        name: 'selectedEvent',
-        rules: [
-          {required: true, message: 'Please select an event you\'d like to join.'}
-        ],
-      },
-      {
-        name: 'name',
-        rules: [
-          {required: true, message: 'Please fill out your name.'}
-        ],
-      },
-      {
-        name: 'mobile',
-        rules: [
-          {required: true, message: 'Please fill out your mobile number.'},
-          // { mobile: true, message: 'The format is not correct.' }
-        ],
-      },
-      {
-        name: 'email',
-        rules: [
-          { required: true, message: 'Please fill out your email.' },
-          // { email: true, message: 'The format is not correct.' }
-        ],
-      },
-    ]
   } as ISignUpFormPageData,
 
   // functions
-  radioChange: function (e: any) {
-    const eventId = Number(e.detail.value);
-    const eventName = this.data.currentEvents?.find((event: IEvent) => event.id === eventId);
-    this.setData({
-      [`formData.selectedEventId`]: eventId,
-      [`formData.selectedEventName`]: eventName,
-    });
-    this.resetEventDetails();
-  },
-
-  contactInputChange(e: any) {
-    const {field} = e.currentTarget.dataset;
-    this.setData({
-        [`formData.${field}`]: e.detail.value
-    });
-  },
-
-  nameInputChange: function (e: any) {
-    const {field} = e.currentTarget.dataset;
-    this.setData({
-        [`formData.${field}`]: e.detail.value
-    });
-  },
-
-  otherInputChange: function (e: any) {
-    const {field} = e.currentTarget.dataset;
-    this.setData({
-        [`formData.${field}`]: e.detail.value
-    });
-  },
-
-  submitForm: function () {
-    this.selectComponent('#form').validate((valid: boolean, errors: any) => {
-      if (!valid) {
-        const firstError = Object.keys(errors)
-        if (firstError.length) {
-          this.setData({
-            error: errors[firstError[0]].message
-          })
-        }
-      } else {
-        const { name, selectedEventName, selectedEventId, email, mobile } = this.data.formData;
-
-        wx.showToast({
-            title: 'Thank you~'
-        })
-        wx.cloud.callFunction({
-          name: "signUp", 
-          data: {
-            eventId: selectedEventId,
-            event: selectedEventName,
-            name,
-            email,
-            mobile,
-          },
-          success: () => {
-            // send signal to reload signed up events
-            wx.switchTab({
-              url: '/pages/myEvents/index',
-            })
-          },
-          fail: () => {
-    
-          },
-          complete: () => {
-    
-          },
-        })
-      }
-    })
-  },
-
   /**
    * Lifecycle function--Called when page load
    */

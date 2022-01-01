@@ -42,21 +42,15 @@ Component({
   data: {
     rules: [
       {
-        name: 'selectedEvent',
-        rules: [
-          {required: true, message: 'Please select an event you\'d like to join.'}
-        ],
-      },
-      {
         name: 'name',
         rules: [
-          {required: true, message: 'Please fill out your name.'}
+          { required: true, message: 'Please fill out your name.'}
         ],
       },
       {
         name: 'mobile',
         rules: [
-          {required: true, message: 'Please fill out your mobile number.'},
+          { required: true, message: 'Please fill out your mobile number.'},
           { mobile: true, message: 'The format is not correct.' }
         ],
       },
@@ -93,12 +87,32 @@ Component({
    * Component methods
    */
   methods: {
+    contactInputChange(e: any) {
+      const {field} = e.currentTarget.dataset;
+      this.setData({
+          [`formData.${field}`]: e.detail.value
+      });
+    },
+  
+    nameInputChange: function (e: any) {
+      const {field} = e.currentTarget.dataset;
+      this.setData({
+          [`formData.${field}`]: e.detail.value
+      });
+    },
+  
+    otherInputChange: function (e: any) {
+      const {field} = e.currentTarget.dataset;
+      this.setData({
+          [`formData.${field}`]: e.detail.value
+      });
+    },
+
     submitForm: function () {
       const validateForm = (component: WechatMiniprogram.Component.TrivialInstance): f.either.Either<Error, SignupData> => {
         const that = this;
         let response: f.either.Either<Error, SignupData> | undefined = undefined;
         component.validate((valid: boolean, errors: any) => {
-
           if (valid) {
             const { name, email, mobile } = that.data.formData;
             const eventId = that.data.eventId;
@@ -121,7 +135,7 @@ Component({
       }
 
       f.function.pipe(
-        this.selectComponent('#signupForm'),
+        this.selectComponent('#form'),
         validateForm,
         f.either.fold(
           (error) => {
@@ -130,6 +144,7 @@ Component({
             })
           },
           (data) => {
+            console.log('data: ', data);
             wx.showToast({
               title: 'Thank you~'
             })
