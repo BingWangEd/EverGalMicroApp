@@ -29,7 +29,3 @@
 .weui-slideview_icon .weui-slideview__btn {
   background-color: #F2667E;
 }
-
-.weui-cell__bd {
-  color: #fff;
-}

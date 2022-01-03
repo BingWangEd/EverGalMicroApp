@@ -15,7 +15,9 @@
   <view class="page__bd">
     <view class="weui-slidecells" wx:for="{{signedUpEvents}}" wx:key="index">
       <mp-slideview buttons="{{slideButtons}}" icon="{{true}}" data-index="{{index}}" bindbuttontap="slideButtonTap" bindtap="viewEventDetail">
-        <view class="weui-slidecell " style="background-color: {{index === selectedEvent ? '#64C0A9' : '#FFFFFF'}};">
+        <view class="weui-slidecell " style=
+          "background-color: {{index === selectedEvent ? '#64C0A9' : '#FFFFFF'}};color: {{index === selectedEvent ? '#FFFFFF' : '#64C0A9'}}"
+        >
           <mp-cell value="{{item.name}}" footer="slide to cancel"></mp-cell>
         </view>
       </mp-slideview>

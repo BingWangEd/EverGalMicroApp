@@ -124,7 +124,8 @@ Page({
           duration: 2000
         });
         that.setData({
-          signedUpEvents: that.data.signedUpEvents.filter((_, i) => i !== eventNumber)
+          signedUpEvents: that.data.signedUpEvents.filter((_, i) => i !== eventNumber),
+          selectedEvent: 0
         })
         that.setData({
           loadingData: false,

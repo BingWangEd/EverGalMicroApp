@@ -9,6 +9,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
+    "enhance": true,
     "postcss": true,
     "minified": true,
     "newFeature": true,
@@ -19,9 +20,10 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
+    "compileHotReLoad": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
