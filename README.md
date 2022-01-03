@@ -1,12 +1,16 @@
-# 云开发 quickstart
+# About This App
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+EverGal is an organization that hosts sports-related events for women in Shanghai. This is a WeChat Micro App I designed and developed for them to help the organization manage their event attendants.
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+# What It Does
 
-## 参考文档
+The app allows a user to
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+## Sign up and view existing events
+![EverGalPartOne-signupGif](https://user-images.githubusercontent.com/29612078/147924642-d2ef8b7c-26dc-41ed-b28d-5be911f1918e.gif)
 
+## View and manage signed up events
+![EverGalPartTwo-viewCancelEventsGif](https://user-images.githubusercontent.com/29612078/147924656-e871e4b7-c7b1-47db-bd4e-43c1f7107a83.gif)
+
+## Learn more about the organization EverGal
+![EverGalPartThree-aboutMeGif](https://user-images.githubusercontent.com/29612078/147925434-c2e6080a-d8f2-442f-a25a-7d6cc99e27e0.gif)
